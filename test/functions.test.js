@@ -1,4 +1,16 @@
-import { l, toArray, map, filter, head, tail, foldl, foldr, get, take, drop} from '../src/index'
+import { l,
+    toArray,
+    map,
+    filter,
+    head,
+    tail,
+    foldl,
+    foldr, 
+    get,
+    take,
+    drop,
+    concat} 
+from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
 
@@ -69,20 +81,32 @@ test('get - large index', () => {
 })
 test('take - When the length of the list is bigger than num', () => {
     const ls1 = l([1, 2, 3, 4, 6])
-    expect(toArray((take(3)(ls1)))).toEqual([1, 2, 3]);
+    expect(toArray (take (3) (ls1))).toEqual([1, 2, 3]);
 })
 
 test('take - When the length of the list is smaller than num', () => {
     const ls1 = l([1, 2])
-    expect( toArray(take(3)(ls1)) ).toEqual([1, 2]);
+    expect(toArray (take (3) (ls1))).toEqual([1, 2]);
 })
 
 test('drop - When the length of the list is bigger than num', () => {
     const ls1 = l([1, 2, 3, 4])
-    expect(toArray ((drop(5)(ls1)) )).toEqual([1, 2, 3, 4])
+    expect(toArray (drop (5) (ls1))).toEqual([1, 2, 3, 4])
 })
 
 test('drop - When the length of the list is smaller than num', () => {
     const ls1 = l([1, 2, 3, 4])
-    expect( toArray(take (10) (ls1))).toEqual([1, 2, 3, 4]);
+    expect(toArray (take (10) (ls1))).toEqual([1, 2, 3, 4]);
+})
+
+test('concat - two empty lists - returns an empty list', () => {
+    const ls1 = l([])
+    const ls2 = l([])
+    expect(toArray (concat (ls1) (ls2))).toEqual([]);
+})
+
+test('concat - two non-empty lists', () => {
+    const ls1 = l([1, 2, 3])
+    const ls2 = l([4, 5, 6])
+    expect(toArray (concat (ls1) (ls2))).toEqual([1, 2, 3, 4, 5, 6]);
 })

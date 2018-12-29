@@ -145,6 +145,15 @@ const drop = num => list => {
         return newList
 }
 
+const concat = list1 => list2 => {
+    const gen = list1[Symbol.iterator]
+    const totalLength = list1.length + list2.length
+    return new List(function* () {
+        yield* gen()
+        yield* list2
+    }, list1.value, totalLength)
+}
+
 export {
     l,
     toArray,
@@ -156,5 +165,6 @@ export {
     foldr,
     get,
     take,
-    drop
+    drop,
+    concat
 }
