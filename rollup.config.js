@@ -1,8 +1,8 @@
 module.exports = {
     input: 'src/index.js',
     output: {
-      file: 'build/bundle.js',
-      name: 'bundle',
+      file: 'build/index.js',
+      name: 'bluelist',
       format: 'iife'
     }
   };

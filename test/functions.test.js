@@ -1,4 +1,4 @@
-import { l, toArray, map, filter } from '../src/index'
+import { l, toArray, map, filter, head, tail } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
 
@@ -12,12 +12,38 @@ test('l - Constructign a list from seperate arguments', () => {
     expect(toArray(ls1)).toEqual([1, 2, 3])
 })
 
-test('map as a function', () => {
+test('map', () => {
     const mList = map(x => x * 100)(list)
     expect(toArray(mList)).toEqual([100, 200, 600, 1000, 1200, 20200]);
 })
 
-test('calling filter as a function', () => {
+test('filter', () => {
     const fList = filter(x => x > 100)(list)
     expect(toArray(fList)).toEqual([202]);
+})
+
+test('head - on an empty list - error', () => {
+    const ls1 = l([])
+    expect(() => head (ls1)).toThrow()
+})
+
+test('head - on a list', () => {
+    const ls1 = l([1])
+    expect(head (ls1)).toEqual(1)
+})
+
+
+test('tail - on an empty list - error', () => {
+    const ls1 = l([])
+    expect(() => tail (ls1)).toThrow()
+})
+
+test('tail - on a singelton list - returns empty list', () => {
+    const ls1 = l([1])
+    expect(tail (ls1)).toEqual(l())
+})
+
+test('tail - on a multi-element list', () => {
+    const ls1 = l([1, 2, 3])
+    expect(tail (ls1)).toEqual(l(2, 3))
 })

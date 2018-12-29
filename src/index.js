@@ -69,9 +69,27 @@ const filter = predicate => list => {
     }, list.value, list.length)
 }
 
+const head = list => {
+    const head = list[Symbol.iterator]().next()
+    if (head.done) throw new Error("Calling head on an empty list")
+    return head.value
+}
+
+const tail = list => {
+    if (isNull (list)) throw new Error("Calling tail on an empty list")
+    const gen = list[Symbol.iterator]
+    return new List(function* () {
+        const iterator = gen();
+        iterator.next();
+        yield* iterator;
+    }, list.value, list.length - 1);
+}
+
 export {
     l,
     toArray,
     map,
-    filter
+    filter,
+    head,
+    tail
 }
