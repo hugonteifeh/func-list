@@ -16,7 +16,8 @@ import { l,
     cons,
     flip,
     reverse,
-    sum
+    sum,
+    product
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -167,4 +168,9 @@ test('reverse', () => {
 })
 test('sum', () => {
     expect(sum (list) ).toEqual(233)
+})
+
+test('product', () => {
+    const ls = l([2, 3, 6])
+    expect(product (ls) ).toEqual(36)
 })
