@@ -12,7 +12,8 @@ import { l,
     concat,
     takeWhile,
     dropWhile,
-    last
+    last,
+    cons
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -146,4 +147,8 @@ test('last - on an empty list', () => {
 test('last - on a non-empty list', () => {
     const ls1 = l([1, 2, 3, 4])
     expect( (last (ls1)) ).toEqual(4)
+})
+
+test('cons', () => {
+    expect(toArray (cons (100) (list))).toEqual([100, 1, 2, 6, 10, 12, 202])
 })

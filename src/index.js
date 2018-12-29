@@ -175,6 +175,11 @@ const last = list => {
     return get (list.length - 1) (list)
 }
 
+const cons = el => ls => {
+    const elList = fromArray([el])
+    return concat (elList) (ls)
+}
+
 export {
     l,
     toArray,
@@ -190,5 +195,6 @@ export {
     concat,
     takeWhile,
     dropWhile,
-    last
+    last,
+    cons
 }
