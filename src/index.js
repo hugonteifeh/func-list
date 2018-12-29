@@ -113,6 +113,38 @@ const get = index => list => {
     return Array.isArray(targetEl) ? fromArray(targetEl) : targetEl
 }
 
+const take = num => list => {
+        if (num > list.length) return list
+        const gen = list[Symbol.iterator]
+        let index = 0
+        const newList = new List(function* () {  
+            const iterator = gen();
+            let el = iterator.next()
+            while (!el.done && index < num) {
+                yield el.value
+                index++
+                el = iterator.next()
+            }
+        }, list.value, num);
+        return newList
+}
+
+const drop = num => list => {
+        if (num > list.length) return list
+        const gen = list[Symbol.iterator]
+        let index = 0
+        const newList = new List(function* () {  
+            const iterator = gen();
+            let el = iterator.next()
+            while (!el.done) {
+                if (index > num - 1) yield el.value
+                el = iterator.next()
+                index = index + 1
+            }
+        }, list.value, list.length - num);
+        return newList
+}
+
 export {
     l,
     toArray,
@@ -122,5 +154,7 @@ export {
     tail,
     foldl,
     foldr,
-    get
+    get,
+    take,
+    drop
 }
