@@ -330,6 +330,9 @@ List.prototype.takeWhile = function (fn) {
 List.prototype.dropWhile = function (fn) {
     return dropWhile (fn) (this)
 }
+List.prototype.concat = function (list2) {
+    return concat (this) (list2)
+}
 export {
     l,
     toArray,

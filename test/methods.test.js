@@ -50,3 +50,9 @@ test('dropWhile', () => {
     const ls1 = l([4, 5, 6])
     expect(ls1.dropWhile(x => x < 6).equals(l(6))).toBeTruthy()
 })
+
+test('concat', () => {
+    const ls1 = l([4, 5, 6])
+    const ls2 = l([7, 8, 9])
+    expect(ls1.concat(ls2).equals(l(4, 5, 6, 7, 8, 9))).toBeTruthy()
+})
