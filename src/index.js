@@ -154,6 +154,23 @@ const concat = list1 => list2 => {
     }, list1.value, totalLength)
 }
 
+const takeWhile = fn => ls => {
+    if (ls.length === 0) return ls 
+    const headEl = head (ls)
+    return fn (headEl)
+        ? concat (list(headEl)) (takeWhile (fn) (tail(ls) )) 
+        : list()
+}
+
+const dropWhile = fn => ls => {
+    return ls.length === 0
+        ? list()
+        : fn ( head (ls) ) 
+            ? dropWhile (fn) ( tail (ls) )
+            : ls
+}
+
+        
 export {
     l,
     toArray,
@@ -166,5 +183,7 @@ export {
     get,
     take,
     drop,
-    concat
+    concat,
+    takeWhile,
+    dropWhile
 }

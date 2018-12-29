@@ -9,8 +9,10 @@ import { l,
     get,
     take,
     drop,
-    concat} 
-from '../src/index'
+    concat,
+    takeWhile,
+    dropWhile
+} from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
 
@@ -109,4 +111,19 @@ test('concat - two non-empty lists', () => {
     const ls1 = l([1, 2, 3])
     const ls2 = l([4, 5, 6])
     expect(toArray (concat (ls1) (ls2))).toEqual([1, 2, 3, 4, 5, 6]);
+})
+
+test('takeWhile - on an empty list', () => {
+    const ls1 = l([])
+    expect( toArray( takeWhile ( x => x < 3 ) (ls1) ) ).toEqual([])
+})
+
+test('takeWhile - on an one-element list', () => {
+    const ls1 = l([4])
+    expect( toArray( takeWhile ( x => x < 6 ) (ls1) ) ).toEqual([4])
+})
+
+test('takeWhile - on a none-empty list', () => {
+    const ls1 = l([4, 5, 6])
+    expect( toArray( takeWhile ( x => x < 6 ) (ls1) ) ).toEqual([4, 5])
 })
