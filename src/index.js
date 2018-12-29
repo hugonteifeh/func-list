@@ -200,6 +200,21 @@ const and = list => {
     return result
 }
 
+const or = list => {
+    const gen = list[Symbol.iterator]
+        const iterator = gen();
+        let el = iterator.next()
+        let result = false
+        while (!el.done) {
+            if (el.value === true) {
+                result = true
+                break
+            }
+            el = iterator.next()
+        }
+    return result
+}
+
 export {
     l,
     toArray,
@@ -221,5 +236,6 @@ export {
     reverse,
     sum,
     product,
-    and
+    and,
+    or
 }

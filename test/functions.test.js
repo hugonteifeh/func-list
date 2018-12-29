@@ -18,7 +18,8 @@ import { l,
     reverse,
     sum,
     product,
-    and
+    and,
+    or
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -189,4 +190,14 @@ test('and - 2', () => {
 test('and - 3', () => {
     const ls1 = l([])
     expect(and (ls1)).toEqual(true)
+})
+
+test('or - 1', () => {
+    const ls1 = l([false, false, false])
+    expect(or (ls1)).toEqual(false)
+})
+
+test('or - 2', () => {
+    const ls1 = l([false, true])
+    expect(or (ls1)).toEqual(true)
 })
