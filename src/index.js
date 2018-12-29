@@ -333,6 +333,12 @@ List.prototype.dropWhile = function (fn) {
 List.prototype.concat = function (list2) {
     return concat (this) (list2)
 }
+List.prototype.last = function () {
+    return last (this)
+}
+List.prototype.cons = function (el) {
+    return cons (el) (this)
+}
 export {
     l,
     toArray,

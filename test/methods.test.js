@@ -56,3 +56,13 @@ test('concat', () => {
     const ls2 = l([7, 8, 9])
     expect(ls1.concat(ls2).equals(l(4, 5, 6, 7, 8, 9))).toBeTruthy()
 })
+
+test('last', () => {
+    const ls1 = l([4, 5, 6])
+    expect(ls1.last()).toEqual(6)
+})
+
+test('cons', () => {
+    const ls1 = l([4, 5, 6])
+    expect(ls1.cons(3).equals(l(3, 4, 5, 6))).toBeTruthy()
+})
