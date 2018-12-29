@@ -85,11 +85,28 @@ const tail = list => {
     }, list.value, list.length - 1);
 }
 
+const foldl = fn => acc => list => {
+    return isNull (list)
+        ? acc
+        : foldl (fn)
+                (fn (acc) (head (list)) )
+                (tail (list) )
+}
+
+const foldr = fn => acc => list => {
+    return isNull (list)
+        ? acc
+        : fn (head(list))
+             (foldr (fn) (acc) (tail(list) ))
+}
+
 export {
     l,
     toArray,
     map,
     filter,
     head,
-    tail
+    tail,
+    foldl,
+    foldr
 }

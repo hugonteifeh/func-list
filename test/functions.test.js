@@ -1,4 +1,4 @@
-import { l, toArray, map, filter, head, tail } from '../src/index'
+import { l, toArray, map, filter, head, tail, foldl, foldr } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
 
@@ -46,4 +46,14 @@ test('tail - on a singelton list - returns empty list', () => {
 test('tail - on a multi-element list', () => {
     const ls1 = l([1, 2, 3])
     expect(tail (ls1)).toEqual(l(2, 3))
+})
+
+test('foldl', () => {
+    const ls1 = l([1, 2, 3, 4, 6])
+    expect(foldl(x => acc => x + acc) (0) (ls1)).toEqual(16);
+})
+
+test('foldr', () => {
+    const ls1 = l([1, 2, 3])
+    expect(foldr (x => acc => x - acc) (0) (ls1)).toEqual(2);
 })
