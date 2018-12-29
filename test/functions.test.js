@@ -1,4 +1,4 @@
-import { l, toArray, map, filter, head, tail, foldl, foldr } from '../src/index'
+import { l, toArray, map, filter, head, tail, foldl, foldr, get} from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
 
@@ -56,4 +56,14 @@ test('foldl', () => {
 test('foldr', () => {
     const ls1 = l([1, 2, 3])
     expect(foldr (x => acc => x - acc) (0) (ls1)).toEqual(2);
+})
+
+test('get - large index', () => {
+    const ls1 = l([2, 3])
+    expect(() => get (2) (ls1)).toThrow("Index too large")
+})
+
+test('get - large index', () => {
+    const ls1 = l([2, 3])
+    expect(() => get (2) (ls1)).toThrow("Index too large")
 })

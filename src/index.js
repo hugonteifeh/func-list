@@ -100,6 +100,19 @@ const foldr = fn => acc => list => {
              (foldr (fn) (acc) (tail(list) ))
 }
 
+const get = index => list => {
+    if (index >= list.length) throw new Error("Index too large")
+    const iterator = list[Symbol.iterator]()
+    let targetEl, currentIndex = 0
+    let currentEl = iterator.next()
+    while (!targetEl && currentIndex !== list.length) {
+        if (currentIndex === index) targetEl = currentEl.value
+        currentEl = iterator.next()
+        currentIndex = currentIndex + 1
+    }
+    return Array.isArray(targetEl) ? fromArray(targetEl) : targetEl
+}
+
 export {
     l,
     toArray,
@@ -108,5 +121,6 @@ export {
     head,
     tail,
     foldl,
-    foldr
+    foldr,
+    get
 }
