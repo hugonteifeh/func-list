@@ -230,6 +230,21 @@ const all = fn => list => {
     return result
 }
 
+const any = fn => list => {
+    const gen = list[Symbol.iterator]
+        const iterator = gen();
+        let el = iterator.next()
+        let result = false
+        while (!el.done) {
+            if (fn (el.value) === true) {
+                result = true
+                break
+            }
+            el = iterator.next()
+        }
+    return result
+}
+
 export {
     l,
     toArray,
@@ -253,5 +268,6 @@ export {
     product,
     and,
     or,
-    all
+    all,
+    any
 }

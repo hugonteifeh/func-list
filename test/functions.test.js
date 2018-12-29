@@ -20,7 +20,8 @@ import { l,
     product,
     and,
     or,
-    all
+    all,
+    any
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -215,4 +216,13 @@ test('all - on non-empty list - 1', () => {
 test('all - on non-empty list - 2', () => {
     const ls1 = l([1, 2, 3])
     expect(all (x => x < 100) (ls1)).toEqual(true)
+})
+
+test('any - on an empty list', () => {
+    const ls1 = l([])
+    expect(any (x => x > 100) (ls1)).toEqual(false)
+})
+test('any - on non-empty list', () => {
+    const ls1 = l([1])
+    expect(any (x => x < 100) (ls1)).toEqual(true)
 })
