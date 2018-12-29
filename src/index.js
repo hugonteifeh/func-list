@@ -245,6 +245,18 @@ const any = fn => list => {
     return result
 }
 
+const equals = dt1 => dt2 => {
+    if (type(dt1) !== type(dt2)) throw new Error("At least one of the provided arguments is not a list")
+    if (type(dt1) === 'Uprising/List') {
+        if (dt1.length !== dt2.length) return false
+        if (dt1.length === 0) return true
+        else return equals (head (dt1)) (head (dt2)) 
+            && (isNull(dt1) ? true : equals (tail (dt1)) (tail (dt2)) )
+    }
+    if (isObject(dt1) && dt1['fantasy-land/equals']) return dt1['fantasy-land/equals'](dt2)
+    return isDeepStrictEqual(dt1, dt2)
+}
+
 export {
     l,
     toArray,
@@ -269,5 +281,6 @@ export {
     and,
     or,
     all,
-    any
+    any,
+    equals
 }

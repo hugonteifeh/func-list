@@ -21,7 +21,8 @@ import { l,
     and,
     or,
     all,
-    any
+    any,
+    equals
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -222,7 +223,26 @@ test('any - on an empty list', () => {
     const ls1 = l([])
     expect(any (x => x > 100) (ls1)).toEqual(false)
 })
+
 test('any - on non-empty list', () => {
     const ls1 = l([1])
     expect(any (x => x < 100) (ls1)).toEqual(true)
+})
+
+test('equals - two non-empty lists - 1', () => {
+    const ls1 = l([2, 4, 7])
+    const ls2 = l([2, 4, 7])
+    expect(equals (ls1) (ls2)).toEqual(true)
+})
+
+test('equals - two non-empty lists - 2', () => {
+    const ls1 = l([2, 4, 7])
+    const ls2 = l([2, 4, 8])
+    expect(equals (ls1) (ls2)).toEqual(false)
+})
+
+test('equals - on empty lists - 2', () => {
+    const ls1 = l([])
+    const ls2 = l([])
+    expect(equals (ls1) (ls2)).toEqual(true)
 })
