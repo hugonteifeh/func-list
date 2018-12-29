@@ -1,20 +1,5 @@
-import Sanctuary from 'sanctuary'
 import type from 'sanctuary-type-identifiers'
-import $ from 'sanctuary-def'
 import { isObject, isDeepStrictEqual } from 'util';
-
-const ListType = $.UnaryType
-    ('Uprising/List')
-    ('http://example.com/my-package#Integer')
-    (x => (type(x) === 'Uprising/List'))
-    (list => list.value)
-
-const env = Sanctuary.env.concat([ListType($.Unknown)])
-
-const S = Sanctuary.create ({
-    checkTypes: true,
-    env,
-});
 
 function List(generator, arr, length) {
     this[Symbol.iterator] = generator
@@ -320,6 +305,15 @@ List.prototype['fantasy-land/equals'] = function(ls2) {
 }
 List.prototype.equals = function(ls2) {
     return equals (this) (ls2)
+}
+List.prototype.length = function() {
+    return length (this)
+}
+List.prototype.head = function () {
+    return head (this)
+}
+List.prototype.tail = function () {
+    return tail (this)
 }
 export {
     l,
