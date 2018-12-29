@@ -17,7 +17,8 @@ import { l,
     flip,
     reverse,
     sum,
-    product
+    product,
+    and
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -173,4 +174,19 @@ test('sum', () => {
 test('product', () => {
     const ls = l([2, 3, 6])
     expect(product (ls) ).toEqual(36)
+})
+
+test('and - 1', () => {
+    const ls1 = l([true, true, false])
+    expect(and (ls1)).toEqual(false)
+})
+
+test('and - 2', () => {
+    const ls1 = l([true, true])
+    expect(and (ls1)).toEqual(true)
+})
+
+test('and - 3', () => {
+    const ls1 = l([])
+    expect(and (ls1)).toEqual(true)
 })

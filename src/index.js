@@ -185,6 +185,21 @@ const reverse = foldl (flip (cons)) (list())
 const sum = foldl (x => y => x + y) (0)
 const product = foldl (x => y => x * y) (1)
 
+const and = list => {
+    const gen = list[Symbol.iterator]
+        const iterator = gen();
+        let el = iterator.next()
+        let result = true
+        while (!el.done) {
+            if (el.value === false) {
+                result = false
+                break
+            }
+            el = iterator.next()
+        }
+    return result
+}
+
 export {
     l,
     toArray,
@@ -205,5 +220,6 @@ export {
     flip,
     reverse,
     sum,
-    product
+    product,
+    and
 }
