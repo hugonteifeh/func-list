@@ -15,7 +15,8 @@ import { l,
     last,
     cons,
     flip,
-    reverse
+    reverse,
+    sum
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -163,4 +164,7 @@ test('flip', () => {
 test('reverse', () => {
     const reversed = reverse(list)
     expect(toArray (reversed)).toEqual([202, 12, 10, 6, 2, 1])
+})
+test('sum', () => {
+    expect(sum (list) ).toEqual(233)
 })

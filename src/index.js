@@ -182,6 +182,7 @@ const cons = el => ls => {
 
 const flip = fn => x => y => fn (y) (x)
 const reverse = foldl (flip (cons)) (list())
+const sum = foldl (x => y => x + y) (0)
 
 export {
     l,
@@ -201,5 +202,6 @@ export {
     last,
     cons,
     flip,
-    reverse
+    reverse,
+    sum
 }
