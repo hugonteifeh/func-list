@@ -315,6 +315,15 @@ List.prototype.head = function () {
 List.prototype.tail = function () {
     return tail (this)
 }
+List.prototype.get = function (index) {
+    return get (index) (this)
+}
+List.prototype.take = function (num) {
+    return take (num) (this)
+}
+List.prototype.drop = function (num) {
+    return drop (num) (this)
+}
 export {
     l,
     toArray,
