@@ -257,6 +257,9 @@ const equals = dt1 => dt2 => {
     return isDeepStrictEqual(dt1, dt2)
 }
 
+const min = x => y => x > y ? y : x
+const max = x => y => min (x) (y) === x ? y : x
+
 export {
     l,
     toArray,
@@ -282,5 +285,7 @@ export {
     or,
     all,
     any,
-    equals
+    equals,
+    min,
+    max
 }

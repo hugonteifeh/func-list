@@ -22,7 +22,9 @@ import { l,
     or,
     all,
     any,
-    equals
+    equals,
+    min,
+    max
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -245,4 +247,12 @@ test('equals - on empty lists - 2', () => {
     const ls1 = l([])
     const ls2 = l([])
     expect(equals (ls1) (ls2)).toEqual(true)
+})
+
+test('min', () => {
+    expect(min (1) (3)).toEqual(1)
+})
+
+test('max', () => {
+    expect(max (1) (3)).toEqual(3)
 })
