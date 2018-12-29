@@ -360,6 +360,12 @@ List.prototype.all = function (fn) {
 List.prototype.any = function (fn) {
     return any (fn) (this)
 }
+List.prototype.minimum = function () {
+    return minimum (this)
+}
+List.prototype.maximum = function () {
+    return maximum (this)
+}
 export {
     l,
     toArray,

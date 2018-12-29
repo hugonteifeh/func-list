@@ -101,3 +101,11 @@ test('any', () => {
     const ls1 = l([1, 2, 3])
     expect(ls1.any(x => x < 100)).toEqual(true)
 })
+
+test('minimum', () => {
+    expect((list).minimum()).toEqual(1)
+})
+
+test('maximum', () => {
+    expect((list).maximum()).toEqual(202)
+})
