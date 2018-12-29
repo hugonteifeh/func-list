@@ -27,7 +27,8 @@ import { l,
     max,
     length,
     minimum,
-    maximum
+    maximum,
+    splitAt
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -271,4 +272,22 @@ test('minimum', () => {
 
 test('maximum', () => {
     expect(maximum (list) ).toEqual(202)
+})
+
+test('splitAt - empty list', () => {
+    const ls1 = splitAt (1) (l())
+    expect(toArray(ls1[0])).toEqual([])
+    expect(toArray(ls1[1])).toEqual([])
+})
+
+test('splitAt - list with one element', () => {
+    const ls1 = splitAt (0) (l([1]))
+    expect(toArray(ls1[0])).toEqual([])
+    expect(toArray(ls1[1])).toEqual([1])
+})
+
+test('splitAt - list with multiple elements', () => {
+    const ls1 = splitAt (2) (l([1, 5, 6, 7, 8]))
+    expect(toArray(ls1[0])).toEqual([1, 5])
+    expect(toArray(ls1[1])).toEqual([6, 7, 8])
 })

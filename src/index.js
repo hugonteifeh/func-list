@@ -275,6 +275,12 @@ const maximum = ls => {
         :  foldl (max) (head (ls) ) (tail (ls)) 
 }
 
+const splitAt = num => ls => {
+    return ls.length === 0
+        ? [ls, ls]
+        : [take (num) (ls), drop (num) (ls)]
+}
+
 export {
     l,
     toArray,
@@ -305,5 +311,6 @@ export {
     max,
     minimum,
     maximum,
-    length
+    length,
+    splitAt
 }
