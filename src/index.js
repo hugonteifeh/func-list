@@ -339,6 +339,9 @@ List.prototype.last = function () {
 List.prototype.cons = function (el) {
     return cons (el) (this)
 }
+List.prototype.reverse = function () {
+    return reverse (this)
+}
 export {
     l,
     toArray,

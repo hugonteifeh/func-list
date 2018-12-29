@@ -66,3 +66,8 @@ test('cons', () => {
     const ls1 = l([4, 5, 6])
     expect(ls1.cons(3).equals(l(3, 4, 5, 6))).toBeTruthy()
 })
+
+test('reverse', () => {
+    const ls1 = l([4, 5, 6])
+    expect(ls1.reverse().equals(l(6, 5, 4))).toBeTruthy()
+})
