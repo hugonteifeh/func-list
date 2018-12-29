@@ -19,7 +19,8 @@ import { l,
     sum,
     product,
     and,
-    or
+    or,
+    all
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -200,4 +201,18 @@ test('or - 1', () => {
 test('or - 2', () => {
     const ls1 = l([false, true])
     expect(or (ls1)).toEqual(true)
+})
+
+test('all - on an empty list', () => {
+    const ls1 = l([])
+    expect(all (x => x > 100) (ls1)).toEqual(true)
+})
+test('all - on non-empty list - 1', () => {
+    const ls1 = l([1, 2, 3])
+    expect(all (x => x < 100) (ls1)).toEqual(true)
+})
+
+test('all - on non-empty list - 2', () => {
+    const ls1 = l([1, 2, 3])
+    expect(all (x => x < 100) (ls1)).toEqual(true)
 })

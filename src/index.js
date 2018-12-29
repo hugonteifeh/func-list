@@ -215,6 +215,21 @@ const or = list => {
     return result
 }
 
+const all = fn => list => {
+    const gen = list[Symbol.iterator]
+    const iterator = gen();
+    let el = iterator.next()
+    let result = true
+    while (!el.done) {
+        if (fn (el.value) === false) {
+            result = false
+            break
+        }
+        el = iterator.next()
+    }
+    return result
+}
+
 export {
     l,
     toArray,
@@ -237,5 +252,6 @@ export {
     sum,
     product,
     and,
-    or
+    or,
+    all
 }
