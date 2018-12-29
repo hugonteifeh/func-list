@@ -62,12 +62,15 @@ const map = fn => list => {
 }
 
 const filter = predicate => list => {
-    const gen = list[Symbol.iterator]
-    return new List(function* () {
-        for (const val of gen()) {
-            if (predicate (val)) yield val
-        }
-    }, list.value, list.length)
+    const iterator = list[Symbol.iterator]()
+    const newArray = []
+    let currentEl = iterator.next()
+    while (!currentEl.done) {
+        if (predicate(currentEl.value)) 
+            newArray.push(currentEl.value)
+            currentEl = iterator.next()
+    }
+    return fromArray (newArray)
 }
 
 const head = list => {
@@ -297,6 +300,27 @@ const zipWith = fn => list1 => list2 => {
                   (zipWith (fn) (tail (list1)) (tail (list2)))
 }
 
+const mapMathod = function (fn) {
+    return map (fn) (this)
+}
+const filterMethod = function (predicate) {
+    return filter (predicate) (this)
+}
+const reduceMethod = function (fn, acc) {
+    return foldl (fn) (acc) (this)
+}
+List.prototype['fantasy-land/map'] = mapMathod
+List.prototype.map = mapMathod
+List.prototype['fantasy-land/filter'] = filterMethod
+List.prototype.filter = filterMethod
+List.prototype['fantasy-land/reduce'] = reduceMethod
+List.prototype.reduce = reduceMethod
+List.prototype['fantasy-land/equals'] = function(ls2) {
+    return equals (this) (ls2)
+}
+List.prototype.equals = function(ls2) {
+    return equals (this) (ls2)
+}
 export {
     l,
     toArray,
