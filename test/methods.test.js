@@ -91,3 +91,13 @@ test('or', () => {
     const ls1 = l([true, false])
     expect((ls1).or()).toEqual(true)
 })
+
+test('all', () => {
+    const ls1 = l([1, 2, 3])
+    expect(ls1.all(x => x < 100)).toEqual(true)
+})
+
+test('any', () => {
+    const ls1 = l([1, 2, 3])
+    expect(ls1.any(x => x < 100)).toEqual(true)
+})

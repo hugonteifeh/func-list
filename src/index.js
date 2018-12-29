@@ -354,6 +354,12 @@ List.prototype.and = function () {
 List.prototype.or = function () {
     return or (this)
 }
+List.prototype.all = function (fn) {
+    return all (fn) (this)
+}
+List.prototype.any = function (fn) {
+    return any (fn) (this)
+}
 export {
     l,
     toArray,
