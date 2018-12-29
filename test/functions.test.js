@@ -28,7 +28,8 @@ import { l,
     length,
     minimum,
     maximum,
-    splitAt
+    splitAt,
+    chain
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -290,4 +291,19 @@ test('splitAt - list with multiple elements', () => {
     const ls1 = splitAt (2) (l([1, 5, 6, 7, 8]))
     expect(toArray(ls1[0])).toEqual([1, 5])
     expect(toArray(ls1[1])).toEqual([6, 7, 8])
+})
+
+test('chain', () => {
+    const ls1 = l([4, 5, 6])
+    expect( toArray( chain (ls1) (x => l(x * 10)) ) ).toEqual([40, 50, 60])
+})
+
+test('chain - singleton list', () => {
+    const ls1 = l([1])
+    expect( toArray( chain (ls1) (x => l(x * 10)) ) ).toEqual([10])
+})
+
+test('chain - empty list', () => {
+    const ls1 = l([])
+    expect( toArray( chain (ls1) (x => l(x * 10)) ) ).toEqual([])
 })

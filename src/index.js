@@ -281,6 +281,15 @@ const splitAt = num => ls => {
         : [take (num) (ls), drop (num) (ls)]
 }
 
+const flatten = (list) => {
+    if (list.length === 0) return list
+    return list.length === 1
+        ? head (list)
+        : concat (head (list)) ( flatten (tail (list)))
+}
+
+const chain = ls => fn => flatten (map (fn) (ls))
+
 export {
     l,
     toArray,
@@ -312,5 +321,6 @@ export {
     minimum,
     maximum,
     length,
-    splitAt
+    splitAt,
+    chain
 }
