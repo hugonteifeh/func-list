@@ -51,7 +51,27 @@ const isNull = list => list.length === 0
 
 const toArray = list => [...list]
 
+const map = fn => list => {
+    const gen = list[Symbol.iterator]
+    return new List(function* () {
+        for (const val of gen()) {
+            yield fn(val)
+        }
+    }, list.value, list.length)
+}
+
+const filter = predicate => list => {
+    const gen = list[Symbol.iterator]
+    return new List(function* () {
+        for (const val of gen()) {
+            if (predicate (val)) yield val
+        }
+    }, list.value, list.length)
+}
+
 export {
     l,
-    toArray
+    toArray,
+    map,
+    filter
 }
