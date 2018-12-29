@@ -180,6 +180,8 @@ const cons = el => ls => {
     return concat (elList) (ls)
 }
 
+const flip = fn => x => y => fn (y) (x)
+
 export {
     l,
     toArray,
@@ -196,5 +198,6 @@ export {
     takeWhile,
     dropWhile,
     last,
-    cons
+    cons,
+    flip
 }

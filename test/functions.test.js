@@ -13,7 +13,8 @@ import { l,
     takeWhile,
     dropWhile,
     last,
-    cons
+    cons,
+    flip
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -151,4 +152,9 @@ test('last - on a non-empty list', () => {
 
 test('cons', () => {
     expect(toArray (cons (100) (list))).toEqual([100, 1, 2, 6, 10, 12, 202])
+})
+
+test('flip', () => {
+    const fn = x => y => x - y
+    expect(flip (fn) (3) (5) ).toEqual(2);
 })
