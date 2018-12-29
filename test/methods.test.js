@@ -40,3 +40,13 @@ test('drop', () => {
     const ls1 = l([1, 2])
     expect(ls1.drop(1).equals(l(2))).toBeTruthy()
 })
+
+test('takeWhile', () => {
+    const ls1 = l([4, 5, 6])
+    expect(ls1.takeWhile(x => x < 6).equals(l(4, 5))).toBeTruthy()
+})
+
+test('dropWhile', () => {
+    const ls1 = l([4, 5, 6])
+    expect(ls1.dropWhile(x => x < 6).equals(l(6))).toBeTruthy()
+})

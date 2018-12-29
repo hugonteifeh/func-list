@@ -324,6 +324,12 @@ List.prototype.take = function (num) {
 List.prototype.drop = function (num) {
     return drop (num) (this)
 }
+List.prototype.takeWhile = function (fn) {
+    return takeWhile (fn) (this)
+}
+List.prototype.dropWhile = function (fn) {
+    return dropWhile (fn) (this)
+}
 export {
     l,
     toArray,
