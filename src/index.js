@@ -181,6 +181,7 @@ const cons = el => ls => {
 }
 
 const flip = fn => x => y => fn (y) (x)
+const reverse = foldl (flip (cons)) (list())
 
 export {
     l,
@@ -199,5 +200,6 @@ export {
     dropWhile,
     last,
     cons,
-    flip
+    flip,
+    reverse
 }

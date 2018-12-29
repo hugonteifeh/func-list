@@ -14,7 +14,8 @@ import { l,
     dropWhile,
     last,
     cons,
-    flip
+    flip,
+    reverse
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -157,4 +158,9 @@ test('cons', () => {
 test('flip', () => {
     const fn = x => y => x - y
     expect(flip (fn) (3) (5) ).toEqual(2);
+})
+
+test('reverse', () => {
+    const reversed = reverse(list)
+    expect(toArray (reversed)).toEqual([202, 12, 10, 6, 2, 1])
 })
