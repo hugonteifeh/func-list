@@ -47,7 +47,8 @@ const l = (...args) => {
             : list (...args) )
 }
 
-const isNull = list => list.length === 0
+const length = dataType => dataType.length
+const isNull = list => length (list) === 0
 
 const toArray = list => [...list]
 
@@ -260,6 +261,20 @@ const equals = dt1 => dt2 => {
 const min = x => y => x > y ? y : x
 const max = x => y => min (x) (y) === x ? y : x
 
+const minimum = ls => {
+    if (length (ls) === 0) throw new Error("Cannot call minimum on an empty list")
+    return length (ls) === 1
+        ?  head (ls)
+        :  foldl (min) (head (ls) ) (tail (ls)) 
+}
+
+const maximum = ls => {
+    if (length (ls) === 0) throw new Error("Cannot call minimum on an empty list")
+    return length (ls) === 1
+        ?  head (ls)
+        :  foldl (max) (head (ls) ) (tail (ls)) 
+}
+
 export {
     l,
     toArray,
@@ -287,5 +302,8 @@ export {
     any,
     equals,
     min,
-    max
+    max,
+    minimum,
+    maximum,
+    length
 }

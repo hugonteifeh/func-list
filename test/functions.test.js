@@ -24,7 +24,10 @@ import { l,
     any,
     equals,
     min,
-    max
+    max,
+    length,
+    minimum,
+    maximum
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -255,4 +258,17 @@ test('min', () => {
 
 test('max', () => {
     expect(max (1) (3)).toEqual(3)
+})
+
+test('length', () => {
+    expect(length (l(1, 2))).toEqual(2)
+})
+
+
+test('minimum', () => {
+    expect(minimum (list) ).toEqual(1)
+})
+
+test('maximum', () => {
+    expect(maximum (list) ).toEqual(202)
 })
