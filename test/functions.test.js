@@ -11,7 +11,8 @@ import { l,
     drop,
     concat,
     takeWhile,
-    dropWhile
+    dropWhile,
+    last
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -135,4 +136,14 @@ test('dropWhile - on an empty list', () => {
 
 test('dropWhile - on a non-empty list', () => {
     expect( toArray( dropWhile ( x => x < 3 ) (list) ) ).toEqual([6, 10, 12, 202])
+})
+
+test('last - on an empty list', () => {
+    const ls1 = l([])
+    expect(() => last (ls1)).toThrow()
+})
+
+test('last - on a non-empty list', () => {
+    const ls1 = l([1, 2, 3, 4])
+    expect( (last (ls1)) ).toEqual(4)
 })

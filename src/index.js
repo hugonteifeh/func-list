@@ -170,7 +170,11 @@ const dropWhile = fn => ls => {
             : ls
 }
 
-        
+const last = list => {
+    if (isNull (list)) throw new Error("Empty list")
+    return get (list.length - 1) (list)
+}
+
 export {
     l,
     toArray,
@@ -185,5 +189,6 @@ export {
     drop,
     concat,
     takeWhile,
-    dropWhile
+    dropWhile,
+    last
 }
