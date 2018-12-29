@@ -342,6 +342,12 @@ List.prototype.cons = function (el) {
 List.prototype.reverse = function () {
     return reverse (this)
 }
+List.prototype.sum = function () {
+    return sum (this)
+}
+List.prototype.product = function () {
+    return product (this)
+}
 export {
     l,
     toArray,

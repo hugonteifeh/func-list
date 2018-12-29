@@ -71,3 +71,13 @@ test('reverse', () => {
     const ls1 = l([4, 5, 6])
     expect(ls1.reverse().equals(l(6, 5, 4))).toBeTruthy()
 })
+
+test('sum', () => {
+    const ls1 = l([4, 5, 6])
+    expect(ls1.sum()).toEqual(15)
+})
+
+test('product', () => {
+    const ls1 = l([4, 5, 6])
+    expect(ls1.product()).toEqual(120)
+})
