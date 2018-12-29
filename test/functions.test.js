@@ -29,7 +29,8 @@ import { l,
     minimum,
     maximum,
     splitAt,
-    chain
+    chain,
+    zipWith
 } from '../src/index'
 
 const list = l([1, 2, 6, 10, 12, 202])
@@ -306,4 +307,20 @@ test('chain - singleton list', () => {
 test('chain - empty list', () => {
     const ls1 = l([])
     expect( toArray( chain (ls1) (x => l(x * 10)) ) ).toEqual([])
+})
+
+test('zipWith', () => {
+    const ls1 = l([2, 3])
+    const ls2 = l([100, 200])
+    const res = zipWith (x => y => x * y) (ls1) (ls2)
+    const expectedRes = l([200, 600])
+    expect(toArray(res)).toEqual(toArray(expectedRes))
+})
+
+test('zipWith - one of the lists is empty', () => {
+    const ls1 = l([])
+    const ls2 = l([100, 200])
+    const res = zipWith (x => y => x * y) (ls1) (ls2)
+    const expectedRes = l()
+    expect(toArray(res)).toEqual(toArray(expectedRes))
 })

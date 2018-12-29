@@ -290,6 +290,13 @@ const flatten = (list) => {
 
 const chain = ls => fn => flatten (map (fn) (ls))
 
+const zipWith = fn => list1 => list2 => {
+    return any (isNull) (list(list1, list2))
+        ? list()
+        : cons (fn (head (list1)) (head (list2)))
+                  (zipWith (fn) (tail (list1)) (tail (list2)))
+}
+
 export {
     l,
     toArray,
@@ -322,5 +329,6 @@ export {
     maximum,
     length,
     splitAt,
-    chain
+    chain,
+    zipWith
 }
