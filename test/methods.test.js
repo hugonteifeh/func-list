@@ -81,3 +81,13 @@ test('product', () => {
     const ls1 = l([4, 5, 6])
     expect(ls1.product()).toEqual(120)
 })
+
+test('and', () => {
+    const ls1 = l([true, true])
+    expect((ls1).and()).toEqual(true)
+})
+
+test('or', () => {
+    const ls1 = l([true, false])
+    expect((ls1).or()).toEqual(true)
+})

@@ -348,6 +348,12 @@ List.prototype.sum = function () {
 List.prototype.product = function () {
     return product (this)
 }
+List.prototype.and = function () {
+    return and (this)
+}
+List.prototype.or = function () {
+    return or (this)
+}
 export {
     l,
     toArray,
