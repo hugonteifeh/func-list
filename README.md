@@ -39,12 +39,12 @@ to all items in the list passed as the second argument.
 
 #### JS signature
 
-`filter (x => Boolean) (List) (List)`
+`filter (x => bool) (list)`
 
 #### Parameters
 
-`x => Boolean` A function that takes a value 'x' and returns a boolean.\
-`List` A list to operate on.
+`x => bool` A function that takes a value 'x' and returns a value of type Boolean.\
+`list` of type *List*.
 
 #### Description
 
