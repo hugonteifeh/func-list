@@ -13,6 +13,7 @@ Bluelist currently implements the following algebraic structures:
 - Monoid
 
 ## Functions
+Noitce! All the functions and their function-arguemnts are curried.
 
 ### map
 
@@ -108,3 +109,15 @@ Returns the first element in the list. Throws an error when called on an empty l
 Returns a list with all the elements in the list provided as the argument except for the first element.
 When called on an empty list it throws an error.
 When called on a singelton-list it returns an empty list.
+
+### get
+
+`get :: (Num a) -> a -> [b] -> b`
+
+#### JS signature
+
+`get (Int) (List)`
+
+#### Description
+
+Takes an index and a list and returns an element at the specified index.
