@@ -116,8 +116,12 @@ When called on a singelton-list it returns an empty list.
 
 #### JS signature
 
-`get (Int) (List)`
+`get (index) (list)`
+
+#### Parameters
+`index` of type Int.
+`list` of type List.
 
 #### Description
 
-Takes an index and a list and returns an element at the specified index.
+Takes an index and a list and returns the element at the specified index.
