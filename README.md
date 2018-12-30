@@ -21,8 +21,8 @@ Bluelist provides lazy lists inpsired by Haskell.
 
 #### Description
 
-Returns a new list that is the result of applying the function that is passed as a first argument
-to all items in a list passed as the second argument.
+Returns a new list that is the result of applying the function that is passed as the first argument
+to all items in the list passed as the second argument.
 
 `filter :: (a -> Bool) [a] -> [a]`
 Takes a predicate(boolean function) and a list and returns a new list whose elements fulfuill the condition in the predicate.
