@@ -223,8 +223,43 @@ Laziness: *none*
 
 #### Parameters
 `x` a value 'x'.\
-`list` of type *List*.\
+`list` of type *List*.
 
 #### Description
 
 Returns a new list that is the result of preapending 'x' to the provided list.
+
+### cons
+
+Laziness: *lazy*
+
+`cons :: a -> [a] -> [a]`
+
+#### JS signature
+
+`cons (x) (list)`
+
+#### Parameters
+`x` a value 'x'.\
+`list` of type *List*.
+
+#### Description
+
+Returns a new list that is the result of preapending 'x' to the provided list.
+
+### reverse
+
+Laziness: *lazy*
+
+`reverse :: [a] -> [a]`
+
+#### JS signature
+
+`reverse (list)`
+
+#### Parameters
+`list` of type *List*.
+
+#### Description
+
+Returns a new list containg the elements in the provided list in the reverse order.
