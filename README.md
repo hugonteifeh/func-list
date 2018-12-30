@@ -41,6 +41,8 @@ to all items in the list passed as the second argument.
 
 Takes a predicate(boolean function) and a list and returns a new list whose elements fulfuill the condition in the predicate.
 
+### foldl
+
 `foldl :: (b -> a -> b) -> b -> [a] -> b`
 
 #### JS signature
