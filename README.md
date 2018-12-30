@@ -52,7 +52,7 @@ Takes a predicate(boolean function) and a list and returns a new list whose elem
 #### Parameters
 
 `x => y => z` A function that takes a value 'x' and a value 'y' and returns a value 'z'.\
-`v` An inital value that is going to be passed as the first argument of the callback function the first time foldl is called.\
+`v` A value 'v'.
 `List` A list to operate on.
 
 #### Description
