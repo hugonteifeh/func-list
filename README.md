@@ -82,11 +82,11 @@ A list that foldr is going to operatre on its values in order.
 
 #### JS signature
 
-`head (List)`
+`head (list)`
 
 #### Parameters
 
-`List` A list.
+`list` of type *List*.
 
 #### Description
 
@@ -98,11 +98,11 @@ Returns the first element in the list. Throws an error when called on an empty l
 
 #### JS signature
 
-`tail (List)`
+`tail (list)`
 
 #### Parameters
 
-`List` A list.
+`List` of type *List*.
 
 #### Description
 
