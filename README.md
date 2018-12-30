@@ -18,10 +18,12 @@ For every function a haskellish signature as well as a javascript signature(with
 
 ## Functions
 
-Some poNumbers that are worth mentioning:
+Some points that are worth mentioning:
 
 - All the functions and their function-arguements are curried.
-- The lazy functions are the functions that return
+- Most of the functions that returns another list are lazy.
+- Generally speaking the functions that result into a new list that has another length than the list that has been provided as an argument are not lazy.
+- Every function has a 'laziness' indicator showing the level of laziness, the levels are 'lazy', 'semi-lazy' and 'none'(strict).
 
 ### map
 
