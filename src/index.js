@@ -105,8 +105,8 @@ const get = index => list => {
 const take = num => list => {
         if (num > list.length) return list
         const gen = list[Symbol.iterator]
-        let index = 0
         const newList = new List(function* () {  
+            let index = 0
             const iterator = gen();
             let el = iterator.next()
             while (!el.done && index < num) {
@@ -121,8 +121,8 @@ const take = num => list => {
 const drop = num => list => {
         if (num > list.length) return list
         const gen = list[Symbol.iterator]
-        let index = 0
         const newList = new List(function* () {  
+            let index = 0
             const iterator = gen();
             let el = iterator.next()
             while (!el.done) {
