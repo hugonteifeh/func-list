@@ -263,3 +263,20 @@ Laziness: *lazy*
 #### Description
 
 Returns a new list containg the elements in the provided list in the reverse order.
+
+### sum
+
+Laziness: *semi-lazy*
+
+`sum :: [a] -> a`
+
+#### JS signature
+
+`sum (list)`
+
+#### Parameters
+`list` of type *List*.
+
+#### Description
+
+Returns the sum of th elements in the provided list. when called on an empty list the result is 0.
