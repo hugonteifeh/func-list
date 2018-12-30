@@ -24,7 +24,21 @@ Bluelist provides lazy lists inpsired by Haskell.
 Returns a new list that is the result of applying the function that is passed as the first argument
 to all items in the list passed as the second argument.
 
+### filter
+
 `filter :: (a -> Bool) [a] -> [a]`
+
+#### JS signature
+
+`filter (x => Boolean) (List) (List)`
+
+#### Parameters
+
+`x => Boolean` A function that takes a value 'x' and returns a boolean.\
+`List` A list to operate on.
+
+#### Description
+
 Takes a predicate(boolean function) and a list and returns a new list whose elements fulfuill the condition in the predicate.
 
 `foldl :: (b -> a -> b) -> b -> [a] -> b`
