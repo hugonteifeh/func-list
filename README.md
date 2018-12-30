@@ -6,7 +6,7 @@ Bluelist provides lazy lists inpsired by Haskell.
 
 ## Functions
 
-`map :: (a -> b) -> [a] -> [b]`
+`map :: (a -> b) -> [a] -> [b]`\
 Takes a mapper function and a list.
 
 `filter :: (a -> Bool) [a] -> [a]`
