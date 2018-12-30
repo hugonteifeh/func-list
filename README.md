@@ -175,3 +175,21 @@ Laziness: *lazy*
 #### Description
 
 Returns a subllist constructed from the list provided as the second argument, the first argument speicifies how many items will be ignored.
+
+### concat
+
+Laziness: *lazy*
+
+`concat :: [a] -> [a] -> [a]`
+
+#### JS signature
+
+`concat (list1) (list2)`
+
+#### Parameters
+`list1` of type *List*.\
+`list2` of type *List*.
+
+#### Description
+
+Returns a new list that is constrcuted from the concatenation of the two provided lists.
