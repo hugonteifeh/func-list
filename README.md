@@ -7,9 +7,9 @@ Bluelist provides lazy lists inpsired by Haskell.
 ## Functions
 
 `map :: (a -> b) -> [a] -> [b]`\
-*JS signature* \
+**JS signature** \
 `map (x => y) (List) (List)`\
-Parameters:\
+**Parameters**:\
 `(x => y)`: A function that takes a value 'x' and returns a value 'y'.\
 `List`: A list to operate on.\
 `List`: A new list produced by map.
