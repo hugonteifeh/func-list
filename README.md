@@ -42,6 +42,21 @@ to all items in the list passed as the second argument.
 Takes a predicate(boolean function) and a list and returns a new list whose elements fulfuill the condition in the predicate.
 
 `foldl :: (b -> a -> b) -> b -> [a] -> b`
+
+#### JS signature
+
+`foldl (x => y => z) (v) (List)`
+
+#### Parameters
+
+`x => y => z` A function that takes a value 'x' and a value 'y' and returns a value 'z'.\
+`v` An inital value that is going to be passed as the first argument of the callback function the first time foldl is called.\
+`List` A list to operate on.
+
+#### Description
+
+Takes the second argument and the first item of the list and applies the function to them, then feeds the function with this result and the second argument and so on.
+
 Parameters:
 `(b -> a -> b)`
 a function that takes two arguemnts and returns a new value.
