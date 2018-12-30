@@ -2,7 +2,15 @@
 
 Bluelist provides lazy lists inpsired by Haskell.
 
-## Api
+## Implemented algebraic structures
+
+Bluelist currently implements the following algebraic structures:
+
+- Functor
+- Semigroup
+- Setoid
+- Foldable
+- Monoid
 
 ## Functions
 
