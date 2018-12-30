@@ -57,7 +57,7 @@ Takes a predicate(boolean function) and a list and returns a new list whose elem
 
 #### Description
 
-Takes the second argument and the first item of the list and applies the function to them, then feeds the function with this result and the second argument and so on.
+Takes the first item of the list and and the second argument and applies the function to them, then calls the function with this result and the second item in the list and so on.
 
 Parameters:
 `(b -> a -> b)`
