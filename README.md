@@ -22,6 +22,8 @@ Noitce! All the functions and their function-arguemnts are curried.
 
 ### map
 
+Lazy: *Yes*
+
 `map :: (a -> b) -> [a] -> [b]`
 
 #### JS signature
@@ -40,6 +42,8 @@ to all items in the list passed as the second argument.
 
 ### filter
 
+Lazy: *False*
+
 `filter :: (a -> Bool) [a] -> [a]`
 
 #### JS signature
@@ -57,6 +61,8 @@ Takes a predicate(boolean function) and a list and returns a new list whose elem
 
 ### foldl
 
+Lazy: *True*
+
 `foldl :: (b -> a -> b) -> b -> [a] -> b`
 
 #### JS signature
@@ -73,15 +79,9 @@ Takes a predicate(boolean function) and a list and returns a new list whose elem
 
 Takes the first item of the list and and the second argument and applies the function to them, then calls the function with this result and the second item in the list and so on.
 
-Parameters:
-`(b -> a -> b)`
-a function that takes two arguemnts and returns a new value.
-`b`
-A value that is going to be provided as a second argument to the function the first time foldl is called.
-`[a]`
-A list that foldr is going to operatre on its values in order.
-
 ### head
+
+Lazy: *false*
 
 `head :: [a] -> a`
 
@@ -98,6 +98,8 @@ A list that foldr is going to operatre on its values in order.
 Returns the first element in the list. Throws an error when called on an empty list.
 
 ### tail
+
+Lazy: *True*
 
 `tail :: [a] -> [a]`
 
@@ -116,6 +118,8 @@ When called on an empty list it throws an error.
 When called on a singelton-list it returns an empty list.
 
 ### get
+
+Lazy: *False*
 
 `get :: (Num a) -> a -> [b] -> b`
 
