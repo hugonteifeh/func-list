@@ -1,6 +1,6 @@
 # Bluelist
 
-Bluelist provides lazy lists inpsired by Haskell.
+Bluelist provides lists with lazy, semi-lazy and strict evaluated functions inpsired by Haskell.
 
 ## Implemented algebraic structures
 
@@ -25,7 +25,7 @@ Some points that are worth mentioning:
 
 ### map
 
-Laziness: *Lazy*
+Laziness: *lazy*
 
 `map :: (a -> b) -> [a] -> [b]`
 
@@ -45,6 +45,8 @@ to all items in the list passed as the second argument.
 
 ### filter
 
+Laziness: *none*
+
 `filter :: (a -> Bool) [a] -> [a]`
 
 #### JS signature
@@ -62,7 +64,7 @@ Takes a predicate(boolean function) and a list and returns a new list whose elem
 
 ### foldl
 
-Laziness: *Semi-lazy*
+Laziness: *semi-lazy*
 
 `foldl :: (b -> a -> b) -> b -> [a] -> b`
 
@@ -82,6 +84,8 @@ Takes the first item of the list and and the second argument and applies the fun
 
 ### head
 
+Laziness: *none*
+
 `head :: [a] -> a`
 
 #### JS signature
@@ -98,7 +102,7 @@ Returns the first element in the list. Throws an error when called on an empty l
 
 ### tail
 
-Laziness: *Lazy*
+Laziness: *lazy*
 
 `tail :: [a] -> [a]`
 
@@ -117,6 +121,8 @@ When called on an empty list it throws an error.
 When called on a singelton-list it returns an empty list.
 
 ### get
+
+Laziness: *none*
 
 `get :: (Num a) -> a -> [b] -> b`
 
