@@ -279,4 +279,21 @@ Laziness: *semi-lazy*
 
 #### Description
 
-Returns the sum of th elements in the provided list. when called on an empty list the result is 0.
+Returns the sum of  all the elements in the provided list. when called on an empty list the result is 0.
+
+### product
+
+Laziness: *semi-lazy*
+
+`product :: [a] -> a`
+
+#### JS signature
+
+`product (list)`
+
+#### Parameters
+`list` of type *List*.
+
+#### Description
+
+Returns the product of all the elements in the provided list. when called on an empty list the result is 1.
