@@ -18,11 +18,14 @@ For every function a haskellish signature as well as a javascript signature(with
 
 ## Functions
 
-Noitce! All the functions and their function-arguemnts are curried.
+Some points that are worth mentioning:
+
+- All the functions and their function-arguements are curried.
+- The lazy functions are the functions that return
 
 ### map
 
-Lazy: *Yes*
+Laziness: *Lazy*
 
 `map :: (a -> b) -> [a] -> [b]`
 
@@ -42,8 +45,6 @@ to all items in the list passed as the second argument.
 
 ### filter
 
-Lazy: *False*
-
 `filter :: (a -> Bool) [a] -> [a]`
 
 #### JS signature
@@ -61,7 +62,7 @@ Takes a predicate(boolean function) and a list and returns a new list whose elem
 
 ### foldl
 
-Lazy: *True*
+Laziness: *Semi-lazy*
 
 `foldl :: (b -> a -> b) -> b -> [a] -> b`
 
@@ -81,8 +82,6 @@ Takes the first item of the list and and the second argument and applies the fun
 
 ### head
 
-Lazy: *false*
-
 `head :: [a] -> a`
 
 #### JS signature
@@ -99,7 +98,7 @@ Returns the first element in the list. Throws an error when called on an empty l
 
 ### tail
 
-Lazy: *True*
+Laziness: *Lazy*
 
 `tail :: [a] -> [a]`
 
@@ -118,8 +117,6 @@ When called on an empty list it throws an error.
 When called on a singelton-list it returns an empty list.
 
 ### get
-
-Lazy: *False*
 
 `get :: (Num a) -> a -> [b] -> b`
 
