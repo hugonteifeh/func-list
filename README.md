@@ -213,7 +213,7 @@ Returns the last element in the list.Throws an error when called on an empty lis
 
 ### cons
 
-Laziness: *none*
+Laziness: *lazt*
 
 `cons :: a -> [a] -> [a]`
 
