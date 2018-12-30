@@ -17,8 +17,7 @@ Bluelist provides lazy lists inpsired by Haskell.
 #### Paramters
 
 `(x => y)` A function that takes a value 'x' and returns a value 'y'.\
-`List` A list to operate on.\
-`List` A new list produced by map.
+`List` A list to operate on.
 
 #### Description
 
