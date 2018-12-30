@@ -12,7 +12,12 @@ Bluelist currently implements the following algebraic structures:
 - Foldable
 - Monoid
 
+## API Documentation
+
+For every function a haskellish signature as well as a javascript signature(with a further explanation) will be provided.
+
 ## Functions
+
 Noitce! All the functions and their function-arguemnts are curried.
 
 ### map
@@ -21,12 +26,12 @@ Noitce! All the functions and their function-arguemnts are curried.
 
 #### JS signature
 
-`map (x => y) (List)`
+`map (x => y) (list)`
 
 #### Parameters
 
 `x => y` A function that takes a value 'x' and returns a value 'y'.\
-`List` A list to operate on.
+`list` of type *List* A list to operate on.
 
 #### Description
 
@@ -43,7 +48,7 @@ to all items in the list passed as the second argument.
 
 #### Parameters
 
-`x => bool` A function that takes a value 'x' and returns a value of type Boolean.\
+`x => bool` A function that takes a value 'x' and returns a value of type *Boolean*.\
 `list` of type *List*.
 
 #### Description
