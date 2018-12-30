@@ -294,6 +294,10 @@ const filterMethod = function (predicate) {
 const reduceMethod = function (fn, acc) {
     return foldl (fn) (acc) (this)
 }
+
+List['fantasy-land/empty'] = function() {
+    return list()
+}
 List.prototype['fantasy-land/map'] = mapMathod
 List.prototype.map = mapMathod
 List.prototype['fantasy-land/filter'] = filterMethod
@@ -302,6 +306,9 @@ List.prototype['fantasy-land/reduce'] = reduceMethod
 List.prototype.reduce = reduceMethod
 List.prototype['fantasy-land/equals'] = function(ls2) {
     return equals (this) (ls2)
+}
+List.prototype['fantasy-land/concat'] = function(ls2) {
+    return concat (this) (ls2)
 }
 List.prototype.equals = function(ls2) {
     return equals (this) (ls2)
