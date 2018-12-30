@@ -67,10 +67,20 @@ A value that is going to be provided as a second argument to the function the fi
 `[a]`
 A list that foldr is going to operatre on its values in order.
 
-`foldr :: (b -> a -> b) -> b -> [a] -> b`
+### head
 
 `head :: [a] -> a`
-Returns the first element in the list.If called on an empty list it throws an error.
+
+#### JS signature
+`head (List)`\
+
+#### Parameters
+
+`List` A list.
+
+#### Description
+
+Returns the first element in the list. Throws an error when called on an empty list.
 
 `tail :: [a] -> [a]`
 Returns all th elements except for the first element in the list.
