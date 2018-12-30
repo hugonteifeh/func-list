@@ -229,24 +229,6 @@ Laziness: *none*
 
 Returns a new list that is the result of preapending 'x' to the provided list.
 
-### cons
-
-Laziness: *lazy*
-
-`cons :: a -> [a] -> [a]`
-
-#### JS signature
-
-`cons (x) (list)`
-
-#### Parameters
-`x` a value 'x'.\
-`list` of type *List*.
-
-#### Description
-
-Returns a new list that is the result of preapending 'x' to the provided list.
-
 ### reverse
 
 Laziness: *lazy*
