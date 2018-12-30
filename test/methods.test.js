@@ -117,3 +117,8 @@ test('splitAt', () => {
     expect(ls1.equals(l(1, 2))).toBeTruthy()
     expect(ls2.equals(l(6, 10, 12, 202))).toBeTruthy()
 })
+
+test('chain', () => {
+    const ls1 = l([4, 5, 6])
+    expect(ls1.chain((x => l(x * 10))).equals(l(40, 50, 60))).toBeTruthy()
+})

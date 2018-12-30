@@ -369,6 +369,9 @@ List.prototype.maximum = function () {
 List.prototype.splitAt = function (index) {
     return splitAt (index) (this)
 }
+List.prototype.chain = function (fn) {
+    return chain (this) (fn)
+}
 export {
     l,
     toArray,
