@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Lazy functional lists in Javascript",
   "main": "build/index.js",
+  "module": "src/index.js",
   "scripts": {
     "test": "jest"
   },
@@ -27,8 +28,6 @@
   },
   "homepage": "https://github.com/hassan-nteifeh/bluelist#readme",
   "dependencies": {
-    "sanctuary": "^0.15.0",
-    "sanctuary-def": "^0.18.1",
     "sanctuary-type-identifiers": "^2.0.1"
   },
   "devDependencies": {
@@ -36,6 +35,8 @@
     "@babel/preset-env": "^7.0.0-beta.54",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.4.0",
-    "jest": "^23.4.1"
+    "babel-plugin-external-helpers": "^6.22.0",
+    "jest": "^23.4.1",
+    "rollup-plugin-babel": "^4.2.0"
   }
 }

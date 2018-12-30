@@ -139,3 +139,21 @@ Laziness: *none*
 #### Description
 
 Takes an index and a list and returns the element at the specified index.
+
+### take
+
+Laziness: *lazy*
+
+`take :: Int -> [a] -> [a]`
+
+#### JS signature
+
+`take (num) (list)`
+
+#### Parameters
+`num` of type *Number*.\
+`list` of type *List*.
+
+#### Description
+
+Returns a new list, the first argument speicifies how many items will be taken from the list passed as the second argument.
