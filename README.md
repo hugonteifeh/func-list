@@ -157,3 +157,21 @@ Laziness: *lazy*
 #### Description
 
 Returns a new list, the first argument speicifies how many items will be taken from the list passed as the second argument.
+
+### drop
+
+Laziness: *lazy*
+
+`drop :: Int -> [a] -> [a]`
+
+#### JS signature
+
+`drop (num) (list)`
+
+#### Parameters
+`num` of type *Number*.\
+`list` of type *List*.
+
+#### Description
+
+Returns a subllist constructed from the list provided as the second argument, the first argument speicifies how many items will be ignored.
