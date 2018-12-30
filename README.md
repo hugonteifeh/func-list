@@ -8,8 +8,11 @@ Bluelist provides lazy lists inpsired by Haskell.
 
 `map :: (a -> b) -> [a] -> [b]`\
 *JS signature* \
-`map (fn) (List) (List)`
-Takes a mapper function and a list.
+`map (x => y) (List) (List)`\
+Parameters:\
+`(x => y)`: A function that takes a value 'x' and returns a value 'y'.\
+`List`: A list to operate on.\
+`List`: A new list produced by map.
 
 `filter :: (a -> Bool) [a] -> [a]`
 Takes a predicate(boolean function) and a list and returns a new list whose elements fulfuill the condition in the predicate.
