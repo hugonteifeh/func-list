@@ -119,8 +119,8 @@ When called on a singelton-list it returns an empty list.
 `get (index) (list)`
 
 #### Parameters
-`index` of type Int.
-`list` of type List.
+`index` of type *Int*.\
+`list` of type *List*.
 
 #### Description
 
