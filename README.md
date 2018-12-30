@@ -1,6 +1,6 @@
 # Bluelist
 
-Bluelist provides lists with lazy, semi-lazy and strict evaluated functions inpsired by Haskell.
+Bluelist provides lists with lazy, semi-lazy and strict evaluated functions.
 
 ## Implemented algebraic structures
 
@@ -21,7 +21,7 @@ For every function a haskellish signature as well as a javascript signature(with
 Some points that are worth mentioning:
 
 - All the functions and their function-arguements are curried.
-- Most of the functions that returns another list are lazy.
+- Most of the functions that return another list are lazy.
 - Generally speaking the functions that result into a new list that has another length than the list that has been provided as an argument are not lazy.
 - Every function has a 'laziness' indicator showing the level of laziness, the levels are 'lazy', 'semi-lazy' and 'none'(strict).
 
@@ -77,7 +77,7 @@ Laziness: *semi-lazy*
 #### Parameters
 
 `x => y => z` A function that takes a value 'x' and a value 'y' and returns a value 'z'.\
-`v` A value 'v'.
+`v` A value 'v'.\
 `List` A list to operate on.
 
 #### Description
