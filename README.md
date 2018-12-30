@@ -18,7 +18,7 @@ For every function a haskellish signature as well as a javascript signature(with
 
 ## Functions
 
-Some points that are worth mentioning:
+Some poNumbers that are worth mentioning:
 
 - All the functions and their function-arguements are curried.
 - The lazy functions are the functions that return
@@ -131,7 +131,7 @@ Laziness: *none*
 `get (index) (list)`
 
 #### Parameters
-`index` of type *Int*.\
+`index` of type *Number*.\
 `list` of type *List*.
 
 #### Description
