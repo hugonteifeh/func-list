@@ -366,6 +366,9 @@ List.prototype.minimum = function () {
 List.prototype.maximum = function () {
     return maximum (this)
 }
+List.prototype.splitAt = function (index) {
+    return splitAt (index) (this)
+}
 export {
     l,
     toArray,

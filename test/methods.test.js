@@ -109,3 +109,11 @@ test('minimum', () => {
 test('maximum', () => {
     expect((list).maximum()).toEqual(202)
 })
+
+test('splitAt', () => {
+    const ls = list.splitAt(2)
+    const ls1 = ls[0]
+    const ls2 = ls[1]
+    expect(ls1.equals(l(1, 2))).toBeTruthy()
+    expect(ls2.equals(l(6, 10, 12, 202))).toBeTruthy()
+})
