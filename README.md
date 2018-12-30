@@ -193,3 +193,20 @@ Laziness: *lazy*
 #### Description
 
 Returns a new list that is constrcuted from the concatenation of the two provided lists.
+
+### last
+
+Laziness: *none*
+
+`last :: [a] -> a`
+
+#### JS signature
+
+`last (list1) (list2)`
+
+#### Parameters
+`list` of type *List*.\
+
+#### Description
+
+Returns the last element in the list.Throws an error when called on an empty list.
