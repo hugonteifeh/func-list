@@ -372,6 +372,9 @@ List.prototype.splitAt = function (index) {
 List.prototype.chain = function (fn) {
     return chain (this) (fn)
 }
+List.prototype.zipWith = function (list2, fn) {
+    return zipWith (fn) (this) (list2)
+ }
 export {
     l,
     toArray,

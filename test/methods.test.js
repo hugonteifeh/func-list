@@ -122,3 +122,10 @@ test('chain', () => {
     const ls1 = l([4, 5, 6])
     expect(ls1.chain((x => l(x * 10))).equals(l(40, 50, 60))).toBeTruthy()
 })
+
+test('zipWith', () => {
+    const ls1 = l([2, 3])
+    const ls2 = l([100, 200])
+    const res = ls1.zipWith(ls2, x => y => x * y)
+    expect((res).equals(l([200, 600]))).toBeTruthy()
+})
