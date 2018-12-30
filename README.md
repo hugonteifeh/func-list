@@ -72,7 +72,8 @@ A list that foldr is going to operatre on its values in order.
 `head :: [a] -> a`
 
 #### JS signature
-`head (List)`\
+
+`head (List)`
 
 #### Parameters
 
@@ -82,7 +83,20 @@ A list that foldr is going to operatre on its values in order.
 
 Returns the first element in the list. Throws an error when called on an empty list.
 
+### tail
+
 `tail :: [a] -> [a]`
-Returns all th elements except for the first element in the list.
-If called on an empty list it throws an error.
-If called on a singelton-list it returns an empty list.
+
+#### JS signature
+
+`tail (List)`
+
+#### Parameters
+
+`List` A list.
+
+#### Description
+
+Returns a list with all the elements in the list provided as the argument except for the first element.
+When called on an empty list it throws an error.
+When called on a singelton-list it returns an empty list.
