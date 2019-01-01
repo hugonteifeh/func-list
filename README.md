@@ -298,7 +298,7 @@ Laziness: *none*
 
 Returns true if all the elements in the provided list fulfill the predicate.
 
-### aanyll
+### any
 
 Laziness: *none*
 
@@ -315,3 +315,39 @@ Laziness: *none*
 #### Description
 
 Returns true if any of the elements in the provided list fulfill the predicate.
+
+### and
+
+Laziness: *none*
+
+`all :: (a -> Bool) -> [a] -> Bool`
+
+#### JS signature
+
+`and (x => Boolean) (list)`
+
+#### Parameters
+`x => Boolean` a predicate function.\
+`list` of type *List Boolean*.
+
+#### Description
+
+Returns true if all the boolean values in the provided list are true.
+
+### or
+
+Laziness: *none*
+
+`all :: (a -> Bool) -> [a] -> Bool`
+
+#### JS signature
+
+`and (x => Boolean) (list)`
+
+#### Parameters
+`x => Boolean` a predicate function.\
+`list` of type *List Boolean*.
+
+#### Description
+
+Returns true if at least one of the boolean values in the provided list is true.
