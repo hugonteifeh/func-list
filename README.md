@@ -282,7 +282,7 @@ Returns the product of all the elements in the provided list. when called on an 
 
 ### all
 
-Laziness: *semi-lazy*
+Laziness: *none*
 
 `all :: (a -> Bool) -> [a] -> Bool`
 
@@ -300,7 +300,7 @@ Returns true if all the elements in the provided list fulfill the predicate.
 
 ### or
 
-Laziness: *semi-lazy*
+Laziness: *none*
 
 `or :: (a -> Bool) -> [a] -> Bool`
 
