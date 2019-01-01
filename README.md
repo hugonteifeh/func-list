@@ -279,3 +279,39 @@ Laziness: *semi-lazy*
 #### Description
 
 Returns the product of all the elements in the provided list. when called on an empty list the result is 1.
+
+### all
+
+Laziness: *semi-lazy*
+
+`all :: (a -> Bool) -> [a] -> Bool`
+
+#### JS signature
+
+`all (x => Boolean) (list)`
+
+#### Parameters
+`x => Boolean` a predicate function.
+`list` of type *List*.
+
+#### Description
+
+Returns true if all the elements in the provided list fulfill the predicate.
+
+### or
+
+Laziness: *semi-lazy*
+
+`or :: (a -> Bool) -> [a] -> Bool`
+
+#### JS signature
+
+`or (x => Boolean) (list)`
+
+#### Parameters
+`x => Boolean` a predicate function.
+`list` of type *List*.
+
+#### Description
+
+Returns true if at least one of the elements in the provided list fulfills the predicate.
