@@ -351,3 +351,15 @@ Laziness: *none*
 #### Description
 
 Returns true if at least one of the boolean values in the provided list is true.
+
+Undocumented functions:
+
+- equals
+- min
+- max
+- minimum
+- maximum
+- length
+- splitAt
+- chain
+- zipWith
