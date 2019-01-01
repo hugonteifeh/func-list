@@ -291,27 +291,27 @@ Laziness: *none*
 `all (x => Boolean) (list)`
 
 #### Parameters
-`x => Boolean` a predicate function.
+`x => Boolean` a predicate function.\
 `list` of type *List*.
 
 #### Description
 
 Returns true if all the elements in the provided list fulfill the predicate.
 
-### or
+### aanyll
 
 Laziness: *none*
 
-`or :: (a -> Bool) -> [a] -> Bool`
+`all :: (a -> Bool) -> [a] -> Bool`
 
 #### JS signature
 
-`or (x => Boolean) (list)`
+`any (x => Boolean) (list)`
 
 #### Parameters
-`x => Boolean` a predicate function.
+`x => Boolean` a predicate function.\
 `list` of type *List*.
 
 #### Description
 
-Returns true if at least one of the elements in the provided list fulfills the predicate.
+Returns true if any of the elements in the provided list fulfill the predicate.
