@@ -12,6 +12,13 @@ Bluelist currently implements the following algebraic structures:
 - Foldable
 - Monoid
 
+## Installation
+
+```javascript
+npm i @hassan.nteifeh/list
+```
+
+
 ## API Documentation
 
 For every function a haskellish signature as well as a javascript signature(with a further explanation) will be provided.
