@@ -16,6 +16,10 @@ Bluelist currently implements the following algebraic structures:
 
 For every function a haskellish signature as well as a javascript signature(with a further explanation) will be provided.
 
+# Constructor
+
+For every function a haskellish signature as well as a javascript signature(with a further explanation) will be provided.
+
 ## Functions
 
 Some points that are worth mentioning:
