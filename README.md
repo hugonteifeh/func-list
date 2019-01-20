@@ -16,9 +16,15 @@ Bluelist currently implements the following algebraic structures:
 
 For every function a haskellish signature as well as a javascript signature(with a further explanation) will be provided.
 
-# Constructor
+## Constructor
 
-For every function a haskellish signature as well as a javascript signature(with a further explanation) will be provided.
+```javascript
+import { l } from '@hassan.nteifeh/list'
+const myList =  l(1, 2, 3)
+const myList2 =  l([1, 2, 3])
+```
+
+As you can see in the above code block the constructor can take the list elements either as seperate arguments or as an array containing the elements.
 
 ## Functions
 
