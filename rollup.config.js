@@ -4,7 +4,7 @@ export default {
     input: 'src/index.js',
     output: {
       file: 'build/index.js',
-      name: 'bluelist',
+      name: 'func-list',
       format: 'umd'
     ,
     plugins: [

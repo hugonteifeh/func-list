@@ -1,7 +1,7 @@
 import type from 'sanctuary-type-identifiers'
 import { isObject, isDeepStrictEqual } from 'util';
 
-function List(generator, arr, length) {
+export function List(generator, arr, length) {
     this[Symbol.iterator] = generator
     this.value = arr || this.value
     this.length = length
@@ -24,7 +24,7 @@ const fromArray = array => {
     }, array, array.length)
 }
 
-const l = (...args) => {
+export const l = (...args) => {
     return args.length === 1 && Array.isArray(args[0])
         ? fromArray(args[0])
         : (args === undefined 
@@ -32,12 +32,12 @@ const l = (...args) => {
             : list (...args) )
 }
 
-const length = dataType => dataType.length
+export const length = dataType => dataType.length
 const isNull = list => length (list) === 0
 
-const toArray = list => [...list]
+export const toArray = list => [...list]
 
-const map = fn => list => {
+export const map = fn => list => {
     const gen = list[Symbol.iterator]
     return new List(function* () {
         for (const val of gen()) {
@@ -46,7 +46,7 @@ const map = fn => list => {
     }, list.value, list.length)
 }
 
-const filter = predicate => list => {
+export const filter = predicate => list => {
     const iterator = list[Symbol.iterator]()
     const newArray = []
     let currentEl = iterator.next()
@@ -58,13 +58,13 @@ const filter = predicate => list => {
     return fromArray (newArray)
 }
 
-const head = list => {
+export const head = list => {
     const head = list[Symbol.iterator]().next()
     if (head.done) throw new Error("Calling head on an empty list")
     return head.value
 }
 
-const tail = list => {
+export const tail = list => {
     if (isNull (list)) throw new Error("Calling tail on an empty list")
     const gen = list[Symbol.iterator]
     return new List(function* () {
@@ -74,7 +74,7 @@ const tail = list => {
     }, list.value, list.length - 1);
 }
 
-const foldl = fn => acc => list => {
+export const foldl = fn => acc => list => {
     return isNull (list)
         ? acc
         : foldl (fn)
@@ -82,14 +82,14 @@ const foldl = fn => acc => list => {
                 (tail (list) )
 }
 
-const foldr = fn => acc => list => {
+export const foldr = fn => acc => list => {
     return isNull (list)
         ? acc
         : fn (head(list))
              (foldr (fn) (acc) (tail(list) ))
 }
 
-const get = index => list => {
+export const get = index => list => {
     if (index >= list.length) throw new Error("Index too large")
     const iterator = list[Symbol.iterator]()
     let targetEl, currentIndex = 0
@@ -102,7 +102,7 @@ const get = index => list => {
     return Array.isArray(targetEl) ? fromArray(targetEl) : targetEl
 }
 
-const take = num => list => {
+export const take = num => list => {
         if (num > list.length) return list
         const gen = list[Symbol.iterator]
         const newList = new List(function* () {  
@@ -118,7 +118,7 @@ const take = num => list => {
         return newList
 }
 
-const drop = num => list => {
+export const drop = num => list => {
         if (num > list.length) return list
         const gen = list[Symbol.iterator]
         const newList = new List(function* () {  
@@ -134,7 +134,7 @@ const drop = num => list => {
         return newList
 }
 
-const concat = list1 => list2 => {
+export const concat = list1 => list2 => {
     const gen = list1[Symbol.iterator]
     const totalLength = list1.length + list2.length
     return new List(function* () {
@@ -143,7 +143,7 @@ const concat = list1 => list2 => {
     }, list1.value, totalLength)
 }
 
-const takeWhile = fn => ls => {
+export const takeWhile = fn => ls => {
     if (ls.length === 0) return ls 
     const headEl = head (ls)
     return fn (headEl)
@@ -151,7 +151,7 @@ const takeWhile = fn => ls => {
         : list()
 }
 
-const dropWhile = fn => ls => {
+export const dropWhile = fn => ls => {
     return ls.length === 0
         ? list()
         : fn ( head (ls) ) 
@@ -159,22 +159,22 @@ const dropWhile = fn => ls => {
             : ls
 }
 
-const last = list => {
+export const last = list => {
     if (isNull (list)) throw new Error("Empty list")
     return get (list.length - 1) (list)
 }
 
-const cons = el => ls => {
+export const cons = el => ls => {
     const elList = fromArray([el])
     return concat (elList) (ls)
 }
 
-const flip = fn => x => y => fn (y) (x)
-const reverse = foldl (flip (cons)) (list())
-const sum = foldl (x => y => x + y) (0)
-const product = foldl (x => y => x * y) (1)
+export const flip = fn => x => y => fn (y) (x)
+export const reverse = foldl (flip (cons)) (list())
+export const sum = foldl (x => y => x + y) (0)
+export const product = foldl (x => y => x * y) (1)
 
-const and = list => {
+export const and = list => {
     const gen = list[Symbol.iterator]
         const iterator = gen();
         let el = iterator.next()
@@ -189,7 +189,7 @@ const and = list => {
     return result
 }
 
-const or = list => {
+export const or = list => {
     const gen = list[Symbol.iterator]
         const iterator = gen();
         let el = iterator.next()
@@ -204,7 +204,7 @@ const or = list => {
     return result
 }
 
-const all = fn => list => {
+export const all = fn => list => {
     const gen = list[Symbol.iterator]
     const iterator = gen();
     let el = iterator.next()
@@ -219,7 +219,7 @@ const all = fn => list => {
     return result
 }
 
-const any = fn => list => {
+export const any = fn => list => {
     const gen = list[Symbol.iterator]
         const iterator = gen();
         let el = iterator.next()
@@ -234,7 +234,7 @@ const any = fn => list => {
     return result
 }
 
-const equals = dt1 => dt2 => {
+export const equals = dt1 => dt2 => {
     if (type(dt1) !== type(dt2)) throw new Error("At least one of the provided arguments is not a list")
     if (type(dt1) === 'Uprising/List') {
         if (dt1.length !== dt2.length) return false
@@ -246,24 +246,24 @@ const equals = dt1 => dt2 => {
     return isDeepStrictEqual(dt1, dt2)
 }
 
-const min = x => y => x > y ? y : x
-const max = x => y => min (x) (y) === x ? y : x
+export const min = x => y => x > y ? y : x
+export const max = x => y => min (x) (y) === x ? y : x
 
-const minimum = ls => {
+export const minimum = ls => {
     if (length (ls) === 0) throw new Error("Cannot call minimum on an empty list")
     return length (ls) === 1
         ?  head (ls)
         :  foldl (min) (head (ls) ) (tail (ls)) 
 }
 
-const maximum = ls => {
+export const maximum = ls => {
     if (length (ls) === 0) throw new Error("Cannot call maximum on an empty list")
     return length (ls) === 1
         ?  head (ls)
         :  foldl (max) (head (ls) ) (tail (ls)) 
 }
 
-const splitAt = num => ls => {
+export const splitAt = num => ls => {
     return ls.length === 0
         ? [ls, ls]
         : [take (num) (ls), drop (num) (ls)]
@@ -276,9 +276,9 @@ const flatten = (list) => {
         : concat (head (list)) ( flatten (tail (list)))
 }
 
-const chain = ls => fn => flatten (map (fn) (ls))
+export const chain = ls => fn => flatten (map (fn) (ls))
 
-const zipWith = fn => list1 => list2 => {
+export const zipWith = fn => list1 => list2 => {
     return any (isNull) (list(list1, list2))
         ? list()
         : cons (fn (head (list1)) (head (list2)))
@@ -381,39 +381,4 @@ List.prototype.chain = function (fn) {
 }
 List.prototype.zipWith = function (list2, fn) {
     return zipWith (fn) (this) (list2)
- }
-export {
-    l,
-    toArray,
-    map,
-    filter,
-    head,
-    tail,
-    foldl,
-    foldr,
-    get,
-    take,
-    drop,
-    concat,
-    takeWhile,
-    dropWhile,
-    last,
-    cons,
-    flip,
-    reverse,
-    sum,
-    product,
-    and,
-    or,
-    all,
-    any,
-    equals,
-    min,
-    max,
-    minimum,
-    maximum,
-    length,
-    splitAt,
-    chain,
-    zipWith
 }
