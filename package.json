@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/housecrow/func-list#readme",
   "dependencies": {
+    "sanctuary-type-classes": "^11.0.0",
     "sanctuary-type-identifiers": "^2.0.1"
   },
   "devDependencies": {
