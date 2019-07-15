@@ -1,10 +1,10 @@
-# Bluelist
+# Description
 
-Bluelist provides lists with lazy, semi-lazy and strict evaluated functions.
+The package provides lists with lazy, semi-lazy and strict evaluated functions.
 
 ## Implemented algebraic structures
 
-Bluelist currently implements the following algebraic structures:
+The package currently implements the following algebraic structures:
 
 - Functor
 - Semigroup
