@@ -15,9 +15,8 @@ Bluelist currently implements the following algebraic structures:
 ## Installation
 
 ```javascript
-npm i @hassan.nteifeh/list
+npm i @housecrow/func-list
 ```
-
 
 ## API Documentation
 
@@ -26,7 +25,7 @@ For every function a haskellish signature as well as a javascript signature(with
 ## Constructor
 
 ```javascript
-import { l } from '@hassan.nteifeh/list'
+import { l } from '@housecrow/func-list'
 const myList =  l(1, 2, 3)
 const myList2 =  l([1, 2, 3])
 ```

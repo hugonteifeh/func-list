@@ -1,5 +1,5 @@
 {
-  "name": "@hassan.nteifeh/bluelist",
+  "name": "@housecrow/func-list",
   "version": "0.0.1",
   "description": "Lazy functional lists in Javascript",
   "main": "build/index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hassan-nteifeh/bluelist.git"
+    "url": "https://github.com/housecrow/func-list"
   },
   "keywords": [
     "FP",
@@ -24,9 +24,9 @@
   "author": "Hassan Nteifeh",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hassan-nteifeh/bluelist/issues"
+    "url": "https://github.com/housecrow/func-list/issues"
   },
-  "homepage": "https://github.com/hassan-nteifeh/bluelist#readme",
+  "homepage": "https://github.com/housecrow/func-list#readme",
   "dependencies": {
     "sanctuary-type-identifiers": "^2.0.1"
   },
