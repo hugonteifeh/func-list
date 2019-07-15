@@ -7,7 +7,7 @@ function List(generator, arr, length) {
     this.length = length
 }
 
-List['@@type'] = 'Uprising/List'
+List['@@type'] = 'housecrow/List'
 List['fantasy-land/empty'] = function() {
     return list()
 }
