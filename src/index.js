@@ -7,7 +7,7 @@ export function List(generator, arr, length) {
     this.length = length
 }
 
-List['@@type'] = 'housecrow/List'
+List['@@type'] = 'housecrow/func-list'
 List['fantasy-land/empty'] = function() {
     return list ()
 }
@@ -237,7 +237,7 @@ export const any = fn => list => {
 export const equals = dt1 => dt2 => {
     if (type (dt1) !== type (dt2))
         throw new Error("At least one of the provided arguments is not a list")
-    if (type (dt1) === 'housecrow/List') {
+    if (type (dt1) === 'housecrow/func-list') {
         if (dt1.length !== dt2.length) return false
         if (dt1.length === 0) return true
         else 
