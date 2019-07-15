@@ -1,6 +1,6 @@
 # Description
 
-The package provides lists with lazy, semi-lazy and strict evaluated functions.
+The package provides lists with lazy, semi-lazy and strict functions. It leverages ES2015's iterators and generators to implement the laziness aspect.
 
 ## Implemented algebraic structures
 
