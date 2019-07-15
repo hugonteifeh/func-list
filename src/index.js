@@ -257,7 +257,7 @@ const minimum = ls => {
 }
 
 const maximum = ls => {
-    if (length (ls) === 0) throw new Error("Cannot call minimum on an empty list")
+    if (length (ls) === 0) throw new Error("Cannot call maximum on an empty list")
     return length (ls) === 1
         ?  head (ls)
         :  foldl (max) (head (ls) ) (tail (ls)) 
