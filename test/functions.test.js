@@ -134,26 +134,26 @@ test('concat - two non-empty lists', () => {
 
 test('takeWhile - on an empty list', () => {
     const ls1 = l([])
-    expect( toArray( takeWhile ( x => x < 3 ) (ls1) ) ).toEqual([])
+    expect(toArray(takeWhile ( x => x < 3) (ls1) )).toEqual([])
 })
 
 test('takeWhile - on an one-element list', () => {
     const ls1 = l([4])
-    expect( toArray( takeWhile ( x => x < 6 ) (ls1) ) ).toEqual([4])
+    expect(toArray (takeWhile ( x => x < 6) (ls1))).toEqual([4])
 })
 
 test('takeWhile - on a none-empty list', () => {
     const ls1 = l([4, 5, 6])
-    expect( toArray( takeWhile ( x => x < 6 ) (ls1) ) ).toEqual([4, 5])
+    expect(toArray (takeWhile ( x => x < 6 ) (ls1) )).toEqual([4, 5])
 })
 
 test('dropWhile - on an empty list', () => {
     const ls1 = l([])
-    expect( toArray( dropWhile ( x => x < 3 ) (ls1) ) ).toEqual([])
+    expect(toArray (dropWhile ( x => x < 3 ) (ls1) )).toEqual([])
 })
 
 test('dropWhile - on a non-empty list', () => {
-    expect( toArray( dropWhile ( x => x < 3 ) (list) ) ).toEqual([6, 10, 12, 202])
+    expect(toArray (dropWhile ( x => x < 3 ) (list))).toEqual([6, 10, 12, 202])
 })
 
 test('last - on an empty list', () => {

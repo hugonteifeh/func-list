@@ -1,13 +1,13 @@
 import type from 'sanctuary-type-identifiers'
 import { isObject, isDeepStrictEqual } from 'util';
 
-export function List(generator, arr, length) {
+function List(generator, length) {
     this[Symbol.iterator] = generator
-    this.value = arr || this.value
     this.length = length
 }
 
 List['@@type'] = 'housecrow/func-list'
+
 List['fantasy-land/empty'] = function() {
     return list ()
 }
@@ -15,13 +15,13 @@ List['fantasy-land/empty'] = function() {
 const list = (...args) => {
     return new List (function* () {
         yield* args
-    }, args, args.length)
+    }, args.length)
 }
 
 const fromArray = array => {
     return new List (function* () {
         yield* array
-    }, array, array.length)
+    }, array.length)
 }
 
 export const l = (...args) => {
@@ -43,7 +43,7 @@ export const map = fn => list => {
         for (const val of gen ()) {
             yield fn (val)
         }
-    }, list.value, list.length)
+    }, list.length)
 }
 
 export const filter = predicate => list => {
@@ -71,7 +71,7 @@ export const tail = list => {
         const iterator = gen ();
         iterator.next ();
         yield* iterator;
-    }, list.value, list.length - 1);
+    }, list.length - 1);
 }
 
 export const foldl = fn => acc => list => {
@@ -114,7 +114,7 @@ export const take = num => list => {
                 index++
                 el = iterator.next ()
             }
-        }, list.value, num);
+        }, num);
         return newList
 }
 
@@ -130,7 +130,7 @@ export const drop = num => list => {
                 el = iterator.next ()
                 index = index + 1
             }
-        }, list.value, list.length - num);
+        }, list.length - num);
         return newList
 }
 
@@ -140,7 +140,7 @@ export const concat = list1 => list2 => {
     return new List (function* () {
         yield* gen ()
         yield* list2
-    }, list1.value, totalLength)
+    }, totalLength)
 }
 
 export const takeWhile = fn => ls => {
