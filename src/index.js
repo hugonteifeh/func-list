@@ -1,6 +1,8 @@
 import type from 'sanctuary-type-identifiers'
 import { isObject, isDeepStrictEqual } from 'util';
 
+const isArray = Array.isArray
+
 function List(generator, length) {
     this[Symbol.iterator] = generator
     this.length = length
@@ -11,6 +13,8 @@ List['@@type'] = 'housecrow/func-list'
 List['fantasy-land/empty'] = function() {
     return list ()
 }
+
+
 
 const list = (...args) => {
     return new List (function* () {
@@ -23,6 +27,8 @@ const fromArray = array => {
         yield* array
     }, array.length)
 }
+
+const w = x => isArray(x) ? fromArray(x) : x
 
 export const l = (...args) => {
     return args.length === 1 && Array.isArray (args[0])
@@ -41,7 +47,7 @@ export const map = fn => list => {
     const gen = list[Symbol.iterator]
     return new List (function* () {
         for (const val of gen ()) {
-            yield fn (val)
+            yield fn (w(val))
         }
     }, list.length)
 }
@@ -51,7 +57,7 @@ export const filter = predicate => list => {
     const newArray = []
     let currentEl = iterator.next ()
     while (!currentEl.done) {
-        if (predicate (currentEl.value)) 
+        if (predicate (w(currentEl.value))) 
             newArray.push (currentEl.value)
             currentEl = iterator.next ()
     }
@@ -60,8 +66,8 @@ export const filter = predicate => list => {
 
 export const head = list => {
     const head = list[Symbol.iterator]().next ()
-    if (head.done) throw new Error ("Calling head on an empty list")
-    return head.value
+    if (head.done) throw new Error ("Calling head on an a headless list, not a wise move :p")
+    return isArray (head.value) ? fromArray (head.value) : head.value
 }
 
 export const tail = list => {

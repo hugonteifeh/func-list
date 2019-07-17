@@ -65,6 +65,12 @@ test('head - on a list', () => {
     expect(head (ls1)).toEqual(1)
 })
 
+test('head - on nested lists', () => {
+    const ls1 = l([[1]])
+    console.log(head (ls1))
+    expect(head (ls1)).toEqual(l([1]))
+})
+
 
 test('tail - on an empty list - error', () => {
     const ls1 = l([])
