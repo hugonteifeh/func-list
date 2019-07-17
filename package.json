@@ -28,8 +28,10 @@
   },
   "homepage": "https://github.com/housecrow/func-list#readme",
   "dependencies": {
+    "mem": "^4.3.0",
     "sanctuary-type-classes": "^11.0.0",
-    "sanctuary-type-identifiers": "^2.0.1"
+    "sanctuary-type-identifiers": "^2.0.1",
+    "braces": ">=2.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.54",
