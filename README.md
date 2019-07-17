@@ -4,7 +4,7 @@ The package provides lists with lazy, semi-lazy and strict functions. It leverag
 
 ## Motivation
 
-The main reason that I've started this project was that I've worked with a backend platform that uses a JVM-based Javascript engine (Nashorn) which exposes many functions in the API whose return values are iterators. I wanted to have a functional interface that wraps these iterators (hence the functional part pf the project), but without iterating over the whole iterator if not necessary (hence the lazienss part). So the project has started with a wrapper for JAVA(ish)-iterators but then I thought of bringing it to javascript arrays.
+The main reason that I've started this project was that I've worked with a backend platform that uses a JVM-based Javascript engine (Nashorn) which exposes many functions in the API whose return values are iterators. I wanted to have a functional interface that wraps these iterators (hence the functional part of the project), but without iterating over the whole iterator if not necessary (hence the lazienss part). So the project has started with a wrapper for JAVA(ish)-iterators in mind but then I thought of bringing it to javascript arrays.
 
 That was a nice story, now to the main reason to why I've really started the project:
 Well, I love functional programming and lazy evaluation, you can't hate me for that :D.
