@@ -14,8 +14,6 @@ List['fantasy-land/empty'] = function() {
     return list ()
 }
 
-
-
 const list = (...args) => {
     return new List (function* () {
         yield* args
@@ -28,7 +26,7 @@ const fromArray = array => {
     }, array.length)
 }
 
-const w = x => isArray(x) ? fromArray(x) : x
+const w = x => isArray (x) ? fromArray (x) : x
 
 export const l = (...args) => {
     return args.length === 1 && Array.isArray (args[0])
