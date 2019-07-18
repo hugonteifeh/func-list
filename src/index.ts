@@ -21,7 +21,7 @@ const fromArray = <A>(array: A[]): List<A> => {
 
 export const length = (dataType: any): number => dataType.length
 
-const isNull = <A>(list: List<A>) : boolean => length (list) === 0
+export const isNull = <A>(list: List<A>) : boolean => length (list) === 0
 
 export const toArray = <A>(list: List<A>): A[] => {
     return [...list].map (val => {
@@ -37,7 +37,7 @@ export const head = <A>(list: List<A>): A =>   {
     return head.value
 }
 
-/*export const tail = <A>(list: List<A>): List<A> => {
+export const tail = <A>(list: List<A>): List<A> => {
     if (isNull (list)) throw new Error ("Calling tail on an empty list")
     const gen = list[Symbol.iterator]
     return new List (function* () {
@@ -174,4 +174,3 @@ export const get = (index: number) => <A>(list: List<A>): A => {
     const isArray = Array.isArray (targetEl)
     return isArray ? fromArray (targetEl) : targetEl
 }
-*/
