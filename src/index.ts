@@ -56,7 +56,7 @@ export const map = <A, B>(fn: (val: A) => B) => (list: List<A>): List<B> => {
     }, list.length)
 }
 
-const filter = <A>(predicate: (val: A) => boolean) => (list: List<A>) => {
+export const filter = <A>(predicate: (val: A) => boolean) => (list: List<A>) => {
     const iterator = list[Symbol.iterator] ()
     const newArray = []
     let currentEl = iterator.next ()

@@ -1,4 +1,4 @@
-import { l, toArray, head, tail, isNull, map, List } from '../src/index'
+import { l, toArray, head, tail, isNull, map, List, filter } from '../src/index'
 
 test ('head - one dimensional list', () => {
     const ls = l (100, 200, 300)
@@ -100,8 +100,19 @@ test ('map - one dimensional list', () => {
 })
 
 test ('map - two dimensional list', () => {
-    const ls = l ([1], [2], [3])
+    const ls = l (l (1), l (2), l (3))
     const mapper = (x: List<number>) =>  head (x) * 100
     expect (map (mapper) (ls)).toEqual (l (100, 200, 300))
 })
 
+test ('filter - one dimensional list', () => {
+    const ls = l (1, 2, 3)
+    const predicate = (x: number) => x > 1
+    expect (filter (predicate) (ls)).toEqual (l (2, 3))
+})
+
+test ('filter - one dimensional list', () => {
+    const ls = l (l (1), l (2), l (3))
+    const predicate = (x: List<number>) => head (x) > 1
+    expect (filter (predicate) (ls)).toEqual (l (l (2), l (3)))
+})
