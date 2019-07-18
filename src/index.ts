@@ -120,7 +120,7 @@ List<A> => {
     return newList
 }
 
-const concat = 
+export const concat = 
 <A>
 (list1: List<A>) =>
 (list2: List<A>):

@@ -9,7 +9,8 @@ import {
     filter,
     length,
     product,
-    sum
+    sum,
+    concat
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -148,4 +149,16 @@ test ('product - one dimensional list', () => {
 test ('sum - one dimensional list', () => {
     const ls = l (2, 5, 4)
     expect (sum (ls)).toEqual (11)
+})
+
+test ('concat - one dimensional lists', () => {
+    const ls1 = l (1, 2, 3)
+    const ls2 = l (4, 5, 6)
+    expect (concat (ls1) (ls2)).toEqual (l (1, 2, 3, 4, 5, 6))
+})
+
+test ('concat - two dimensional lists', () => {
+    const ls1 = l (l (1), l (2), l (3))
+    const ls2 = l (l (4), l (5), l (6))
+    expect (concat (ls1) (ls2)).toEqual (l ( l (1), l (2), l (3), l (4), l (5), l (6)))
 })
