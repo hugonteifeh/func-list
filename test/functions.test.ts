@@ -10,7 +10,8 @@ import {
     length,
     product,
     sum,
-    concat
+    concat,
+    flip
 } from '../src/index'
 
 test ('head - one dimensional list', () => {

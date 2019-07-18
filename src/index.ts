@@ -149,11 +149,6 @@ const dropWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> => {
             : ls
 }
 
-const flip = <A, B, C>
-(fn: (x: A) => (y: B) => C) =>
-(x: B) => (y: A): C =>
-fn (y) (x)
-
 export const sum : (x: List<number>) => number =  
 foldl ((x: number) => (y: number) => x + y) (0)
 
