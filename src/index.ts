@@ -154,7 +154,8 @@ const flip = <A, B, C>
 (x: B) => (y: A): C =>
 fn (y) (x)
 
-function sum (x: List<number>): number { return foldl ((x: number) => (y: number) => x + y) (0) (x) }
+export const sum : (x: List<number>) => number =  
+foldl ((x: number) => (y: number) => x + y) (0)
 
 export const product: (a: List<number>) => number =
 foldl ((x: number) => (y: number) => x * y) (1)

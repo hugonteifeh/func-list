@@ -8,7 +8,8 @@ import {
     List,
     filter,
     length,
-    product
+    product,
+    sum
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -142,4 +143,9 @@ test ('length - two dimensional list', () => {
 test ('product - one dimensional list', () => {
     const ls = l (2, 5, 4)
     expect (product (ls)).toEqual (40)
+})
+
+test ('sum - one dimensional list', () => {
+    const ls = l (2, 5, 4)
+    expect (sum (ls)).toEqual (11)
 })
