@@ -156,7 +156,7 @@ fn (y) (x)
 
 function sum (x: List<number>): number { return foldl ((x: number) => (y: number) => x + y) (0) (x) }
 
-const product: (a: List<number>) => number =
+export const product: (a: List<number>) => number =
 foldl ((x: number) => (y: number) => x * y) (1)
 
 const get = (index: number) => <A>(list: List<A>): A => {

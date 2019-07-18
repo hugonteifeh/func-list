@@ -7,7 +7,8 @@ import {
     map,
     List,
     filter,
-    length
+    length,
+    product
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -135,4 +136,10 @@ test ('length - one dimensional list', () => {
 test ('length - two dimensional list', () => {
     const ls = l ( l (1), l (2), l (3))
     expect (length (ls)).toEqual (3)
+})
+
+
+test ('product - one dimensional list', () => {
+    const ls = l (2, 5, 4)
+    expect (product (ls)).toEqual (40)
 })
