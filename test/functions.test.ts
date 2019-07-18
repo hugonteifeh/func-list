@@ -11,7 +11,7 @@ import {
     product,
     sum,
     concat,
-    flip
+    foldl
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -162,4 +162,16 @@ test ('concat - two dimensional lists', () => {
     const ls1 = l (l (1), l (2), l (3))
     const ls2 = l (l (4), l (5), l (6))
     expect (concat (ls1) (ls2)).toEqual (l ( l (1), l (2), l (3), l (4), l (5), l (6)))
+})
+
+test ('foldl - one dimensional lists', () => {
+    const ls = l (1, 2, 3)
+    const reducer = (x: number) => (y: number) => product (l (x, y))
+    expect (foldl (reducer) (1) (ls)).toEqual (6)
+})
+
+test ('foldl - two dimensional lists', () => {
+    const ls = l (l (1), l (2), l (3))
+    const reducer = (x: number) => (y: List<number>): number => product (l ( x, head (y)))
+    expect (foldl (reducer) (1) (ls)).toEqual (6)
 })

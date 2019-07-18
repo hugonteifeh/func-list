@@ -68,14 +68,14 @@ export const filter = <A>(predicate: (val: A) => boolean) => (list: List<A>) => 
     return fromArray (newArray)
 }
 
-const foldl = 
+export const foldl = 
 <A, B>
 (fn: (acc: B) => (val: A) => B) => 
 (acc: B) =>
 (list: List<A>): B => {
     return isNull (list) 
-    ? acc :
-    foldl (fn) (fn (acc) (head (list))) (tail (list))
+    ? acc 
+    : foldl (fn) (fn (acc) (head (list))) (tail (list))
 }
 
 const take =
