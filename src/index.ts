@@ -1,4 +1,4 @@
-class List<A> {
+export class List<A> {
     [Symbol.iterator]: () => IterableIterator<any>;
     length: number;
     npmPkg: string;
@@ -56,7 +56,7 @@ export const map = <A, B>(fn: (val: A) => B) => (list: List<A>): List<B> => {
     }, list.length)
 }
 
-export const filter = <A>(predicate: (val: A) => boolean) => (list: List<A>) => {
+const filter = <A>(predicate: (val: A) => boolean) => (list: List<A>) => {
     const iterator = list[Symbol.iterator] ()
     const newArray = []
     let currentEl = iterator.next ()
@@ -68,8 +68,7 @@ export const filter = <A>(predicate: (val: A) => boolean) => (list: List<A>) => 
     return fromArray (newArray)
 }
 
-
-export const foldl = 
+const foldl = 
 <A, B>
 (fn: (acc: B) => (val: A) => B) => 
 (acc: B) =>
@@ -79,7 +78,7 @@ export const foldl =
     foldl (fn) (fn (acc) (head (list))) (tail (list))
 }
 
-export const take =
+const take =
 <A>
 (num: number) =>
 (list: List<A>):
@@ -100,7 +99,7 @@ List<A> => {
     return newList
 }
 
-export const drop =
+const drop =
 <A>
 (num: number) =>
 (list: List<A>):
@@ -121,7 +120,7 @@ List<A> => {
     return newList
 }
 
-export const concat = 
+const concat = 
 <A>
 (list1: List<A>) =>
 (list2: List<A>):
@@ -134,7 +133,7 @@ List<A> => {
     }, totalLength)
 }
 
-export const takeWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> => {
+const takeWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> => {
     if (ls.length === 0) return ls 
     const headEl = head (ls)
     return fn (headEl) 
@@ -142,7 +141,7 @@ export const takeWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> =>
         : l ([])
 }
 
-export const dropWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> => {
+const dropWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> => {
     return ls.length === 0
         ? l ([])
         : fn (head (ls)) 
@@ -150,17 +149,17 @@ export const dropWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> =>
             : ls
 }
 
-export const flip = <A, B, C>
+const flip = <A, B, C>
 (fn: (x: A) => (y: B) => C) =>
 (x: B) => (y: A): C =>
 fn (y) (x)
 
-export function sum (x: List<number>): number { return foldl ((x: number) => (y: number) => x + y) (0) (x) }
+function sum (x: List<number>): number { return foldl ((x: number) => (y: number) => x + y) (0) (x) }
 
-export const product: (a: List<number>) => number =
+const product: (a: List<number>) => number =
 foldl ((x: number) => (y: number) => x * y) (1)
 
-export const get = (index: number) => <A>(list: List<A>): A => {
+const get = (index: number) => <A>(list: List<A>): A => {
     if (index >= list.length) throw new Error ("Index too large")
     const iterator = list[Symbol.iterator] ()
     let currentEl = iterator.next ()
