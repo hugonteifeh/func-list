@@ -217,3 +217,17 @@ export const any = <A>(fn: (x: A) => boolean) => (list: List<A>): boolean => {
         }
     return result
 }
+
+export const minimum = (ls: List<number>): number => {
+    if (length (ls) === 0) throw new Error ("Cannot call minimum on an empty list")
+    return length (ls) === 1
+        ?  head (ls)
+        :  foldl (min) (head (ls)) (tail (ls)) 
+}
+
+export const maximum = (ls: List<number>): number => {
+    if (length (ls) === 0) throw new Error ("Cannot call maximum on an empty list")
+    return length (ls) === 1
+        ?  head (ls)
+        :  foldl (max) (head (ls)) (tail (ls)) 
+}
