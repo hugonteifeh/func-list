@@ -202,3 +202,18 @@ export const all = <A>(fn: (x: A) => boolean) => (list: List<A>): boolean => {
     }
     return result
 }
+
+export const any = <A>(fn: (x: A) => boolean) => (list: List<A>): boolean => {
+    const gen = list[Symbol.iterator]
+        const iterator = gen ();
+        let el = iterator.next ()
+        let result = false
+        while (!el.done) {
+            if (fn (el.value) === true) {
+                result = true
+                break
+            }
+            el = iterator.next ()
+        }
+    return result
+}

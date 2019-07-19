@@ -15,7 +15,8 @@ import {
     min,
     max,
     and,
-    all
+    all,
+    any
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -207,4 +208,14 @@ test ('all - one dimensional lists', () => {
 test ('all - one dimensional lists', () => {
     const ls = l (1, 2, 3)
     expect (all ((x: number) => x < 4 ) (ls)).toEqual (true)
+})
+
+test ('any - one dimensional lists', () => {
+    const ls = l (1, 2, 3)
+    expect (any ((x: number) => x > 2 ) (ls)).toEqual (true)
+})
+
+test ('any - one dimensional lists', () => {
+    const ls = l (1, 2, 3)
+    expect (any ((x: number) => x > 3 ) (ls)).toEqual (false)
 })
