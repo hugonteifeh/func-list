@@ -1,3 +1,7 @@
+
+
+const { isObject, isDeepStrictEqual } = require ('util')
+
 export class List<A> {
     [Symbol.iterator]: () => IterableIterator<any>;
     length: number;
@@ -8,8 +12,10 @@ export class List<A> {
         this.npmPkg = '@housecrow/func-list@0.2.0'
     }
 }   
-
-const isList = (val: any):boolean => /^@housecrow\/func-list/.test (val.npmPkg)
+ 
+function isList <A> (val: any): val is List<A> {
+    return /^@housecrow\/func-list/.test (val.npmPkg)
+}
 
 export const l = <A>(...arr: A[]): List<A> => fromArray (arr)
 
@@ -238,4 +244,15 @@ export const maximum = (ls: List<number>): number => {
     return length (ls) === 1
         ?  head (ls)
         :  foldl (max) (head (ls)) (tail (ls)) 
+}
+
+export const equals = <A>(dt1: A) => (dt2: A): boolean => {
+    if (isList (dt1) && isList (dt2)) {
+        if (dt1.length !== dt2.length) return false
+        if (dt1.length === 0) return true
+        else 
+            return equals (head (dt1)) (head (dt2)) 
+                && (isNull (dt1) ? true : equals (tail (dt1)) (tail (dt2)))
+    }
+    return isDeepStrictEqual (dt1, dt2)
 }

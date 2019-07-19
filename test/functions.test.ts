@@ -25,6 +25,7 @@ import {
     get,
     takeWhile,
     dropWhile,
+    equals
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -281,4 +282,9 @@ test ('takeWhile - one dimensional list', () => {
 test ('dropWhile - one dimensional list', () => {
     const ls = l (3, 4, 6, 8)
     expect (dropWhile ((x: number) => x < 5) (ls)).toEqual (l (6, 8));
+})
+
+test ('equals - one dimensional list', () => {
+    const result = equals (l (l (2, 3))) (l (l (2, 3)))
+    expect (result).toBeTruthy;
 })
