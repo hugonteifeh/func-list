@@ -9,7 +9,7 @@ export class List<A> {
     }
 }   
 
-const isList = (val: any):boolean => val.npmPkg && val.npmPkg === '@housecrow/func-list'
+const isList = (val: any):boolean => /^@housecrow\/func-list/.test (val.npmPkg)
 
 export const l = <A>(...arr: A[]): List<A> => fromArray (arr)
 
