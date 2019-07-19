@@ -142,15 +142,15 @@ List<A> => {
     }, totalLength)
 }
 
-const takeWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> => {
+export const takeWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> => {
     if (ls.length === 0) return ls 
     const headEl = head (ls)
     return fn (headEl) 
-        ? concat (l ([headEl])) (takeWhile (fn) (tail (ls))) 
-        : l ([])
+        ? concat (l (headEl)) (takeWhile (fn) (tail (ls))) 
+        : l ()
 }
 
-const dropWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> => {
+export const dropWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> => {
     return ls.length === 0
         ? l ([])
         : fn (head (ls)) 

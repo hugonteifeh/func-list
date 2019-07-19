@@ -22,7 +22,9 @@ import {
     drop,
     take,
     foldr,
-    get
+    get,
+    takeWhile,
+    dropWhile,
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -269,4 +271,11 @@ test ('get - one dimensional list', () => {
 test ('get - two dimensional list', () => {
     const ls = l ( l (1), l (2), l (3))
     expect (get (2) (ls)).toEqual (l (3));
+})
+
+test ('takeWhile - one dimensional list', () => {
+    const ls = l (3, 4, 6)
+    const result = takeWhile ((x: number) => x < 5) (ls)
+    console.log (toArray (result))
+    expect (takeWhile ((x: number) => x < 5) (ls)).toEqual (l (3, 4));
 })
