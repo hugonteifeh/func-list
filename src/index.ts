@@ -5,7 +5,7 @@ export class List<A> {
     constructor (generator: () => IterableIterator<any>, length: number) {
         this[Symbol.iterator] = generator;
         this.length = length;
-        this.npmPkg = '@housecrow/func-list'
+        this.npmPkg = '@housecrow/func-list@0.2.0'
     }
 }   
 
