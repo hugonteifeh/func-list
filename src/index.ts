@@ -164,19 +164,18 @@ foldl ((x: number) => (y: number) => x + y) (0)
 export const product: (a: List<number>) => number =
 foldl ((x: number) => (y: number) => x * y) (1)
 
-const get = (index: number) => <A>(list: List<A>): A => {
+export const get = (index: number) => <A>(list: List<A>): A => {
     if (index >= list.length) throw new Error ("Index too large")
     const iterator = list[Symbol.iterator] ()
     let currentEl = iterator.next ()
-    let targetEl = currentEl.value, currentIndex = 0
+    let targetEl, currentIndex = 0
     while (!targetEl && currentIndex !== list.length) {
         if (currentIndex === index) targetEl = currentEl.value
         currentEl = iterator.next ()
         currentIndex = currentIndex + 1
     }
-
-    const isArray = Array.isArray (targetEl)
-    return isArray ? fromArray (targetEl) : targetEl
+    
+    return targetEl
 }
 
 export const min = (x: number) => (y: number): number => x > y ? y : x

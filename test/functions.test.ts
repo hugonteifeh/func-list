@@ -21,7 +21,8 @@ import {
     maximum,
     drop,
     take,
-    foldr
+    foldr,
+    get
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -258,4 +259,14 @@ test ('take - two dimensional lists', () => {
 test ('foldr', () => {
     const ls = l (1, 2, 3)
     expect (foldr ((x: number) => (acc: number) => x - acc) (0) (ls)).toEqual (2);
+})
+
+test ('get - one dimensional list', () => {
+    const ls = l (1, 2, 3)
+    expect (get (2) (ls)).toEqual (3);
+})
+
+test ('get - two dimensional list', () => {
+    const ls = l ( l (1), l (2), l (3))
+    expect (get (2) (ls)).toEqual (l (3));
 })
