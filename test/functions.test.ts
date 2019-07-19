@@ -11,7 +11,9 @@ import {
     product,
     sum,
     concat,
-    foldl
+    foldl,
+    min,
+    max
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -174,4 +176,13 @@ test ('foldl - two dimensional lists', () => {
     const ls = l (l (1), l (2), l (3))
     const reducer = (x: number) => (y: List<number>): number => product (l ( x, head (y)))
     expect (foldl (reducer) (1) (ls)).toEqual (6)
+})
+
+
+test ('min', () => {
+    expect (min (2) (1)).toEqual (1)
+})
+
+test ('max', () => {
+    expect (max (2) (1)).toEqual (2)
 })

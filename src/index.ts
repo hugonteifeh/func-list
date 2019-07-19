@@ -169,3 +169,6 @@ const get = (index: number) => <A>(list: List<A>): A => {
     const isArray = Array.isArray (targetEl)
     return isArray ? fromArray (targetEl) : targetEl
 }
+
+export const min = (x: number) => (y: number): number => x > y ? y : x
+export const max = (x: number) => (y: number): number => min (x) (y) === x ? y : x
