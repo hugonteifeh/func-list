@@ -256,3 +256,8 @@ export const equals = <A>(dt1: A) => (dt2: A): boolean => {
     }
     return isDeepStrictEqual (dt1, dt2)
 }
+
+export const last = <A>(list: List<A>): A => {
+    if (isNull (list)) throw new Error ("Empty list")
+    return get (list.length - 1) (list)
+}

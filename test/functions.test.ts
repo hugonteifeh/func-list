@@ -25,7 +25,8 @@ import {
     get,
     takeWhile,
     dropWhile,
-    equals
+    equals,
+    last
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -287,4 +288,15 @@ test ('dropWhile - one dimensional list', () => {
 test ('equals - one dimensional list', () => {
     const result = equals (l (l (2, 3))) (l (l (2, 3)))
     expect (result).toBeTruthy;
+})
+
+
+test ('last - on an empty list', () => {
+    const ls1 = l ()
+    expect (() => last (ls1)).toThrow ()
+})
+
+test ('last - on a non-empty list', () => {
+    const ls1 = l (1, 2, 3, 4)
+    expect ((last (ls1)) ).toEqual (4)
 })
