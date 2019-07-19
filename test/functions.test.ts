@@ -13,7 +13,8 @@ import {
     concat,
     foldl,
     min,
-    max
+    max,
+    and
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -185,4 +186,14 @@ test ('min', () => {
 
 test ('max', () => {
     expect (max (2) (1)).toEqual (2)
+})
+
+test ('and - one dimensional lists', () => {
+    const ls = l (true, true, false)
+    expect (and (ls)).toEqual (false)
+})
+
+test ('and - one dimensional lists', () => {
+    const ls = l (true, true, true)
+    expect (and (ls)).toEqual (true)
 })

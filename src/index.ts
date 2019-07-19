@@ -172,3 +172,18 @@ const get = (index: number) => <A>(list: List<A>): A => {
 
 export const min = (x: number) => (y: number): number => x > y ? y : x
 export const max = (x: number) => (y: number): number => min (x) (y) === x ? y : x
+
+export const and = (list: List<boolean>): boolean => {
+    const gen = list[Symbol.iterator]
+        const iterator = gen ();
+        let el = iterator.next ()
+        let result = true
+        while (!el.done) {
+            if (el.value === false) {
+                result = false
+                break
+            }
+            el = iterator.next ()
+        }
+    return result
+}
