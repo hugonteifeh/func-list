@@ -67,7 +67,6 @@ test('head - on a list', () => {
 
 test('head - on nested lists', () => {
     const ls1 = l([[1]])
-    console.log(head (ls1))
     expect(head (ls1)).toEqual(l([1]))
 })
 
