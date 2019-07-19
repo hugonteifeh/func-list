@@ -26,7 +26,8 @@ import {
     takeWhile,
     dropWhile,
     equals,
-    last
+    last,
+    cons
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -299,4 +300,9 @@ test ('last - on an empty list', () => {
 test ('last - on a non-empty list', () => {
     const ls1 = l (1, 2, 3, 4)
     expect ((last (ls1)) ).toEqual (4)
+})
+
+test ('const - on one dimensional list', () => {
+    const ls = l (1, 2, 3, 4)
+    expect ((cons (0) (ls)) ).toEqual ( l (0, 1, 2, 3, 4))
 })

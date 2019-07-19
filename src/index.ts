@@ -261,3 +261,5 @@ export const last = <A>(list: List<A>): A => {
     if (isNull (list)) throw new Error ("Empty list")
     return get (list.length - 1) (list)
 }
+
+export const cons = <A>(x: A) => (ls: List<A>) => concat (l (x)) (ls)
