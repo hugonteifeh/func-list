@@ -5,7 +5,8 @@
   "main": "build/index.js",
   "module": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prepublish": "rollup -c rollup.config.js"
   },
   "repository": {
     "type": "git",
