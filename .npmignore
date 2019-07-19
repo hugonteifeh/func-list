@@ -1,3 +1,5 @@
 test/
 rollup.config.js
 .babelrc
+coverage
+.github/

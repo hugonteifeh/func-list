@@ -1,6 +1,6 @@
 {
   "name": "@housecrow/func-list",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Lazy functional lists in Javascript",
   "main": "build/index.js",
   "module": "src/index.js",
