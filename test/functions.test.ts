@@ -19,7 +19,8 @@ import {
     any,
     minimum,
     maximum,
-    drop
+    drop,
+    take
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -241,4 +242,14 @@ test ('drop - one dimensional lists', () => {
 test ('drop - two dimensional lists', () => {
     const ls = l ( l (1), l (2), l (3))
     expect (drop (2) (ls)).toEqual (l ( l (3)))
+})
+
+test ('take - one dimensional lists', () => {
+    const ls = l (1, 2, 3)
+    expect (take (2) (ls)).toEqual (l (1, 2))
+})
+
+test ('take - two dimensional lists', () => {
+    const ls = l ( l (1), l (2), l (3))
+    expect (take (2) (ls)).toEqual (l ( l (1), l (2)))
 })

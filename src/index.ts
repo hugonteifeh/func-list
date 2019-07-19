@@ -78,7 +78,7 @@ export const foldl =
     : foldl (fn) (fn (acc) (head (list))) (tail (list))
 }
 
-const take =
+export const take =
 <A>
 (num: number) =>
 (list: List<A>):
