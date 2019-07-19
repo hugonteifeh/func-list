@@ -152,7 +152,7 @@ export const takeWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> =>
 
 export const dropWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> => {
     return ls.length === 0
-        ? l ([])
+        ? l ()
         : fn (head (ls)) 
             ? dropWhile (fn) (tail (ls))
             : ls

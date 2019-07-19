@@ -275,7 +275,10 @@ test ('get - two dimensional list', () => {
 
 test ('takeWhile - one dimensional list', () => {
     const ls = l (3, 4, 6)
-    const result = takeWhile ((x: number) => x < 5) (ls)
-    console.log (toArray (result))
     expect (takeWhile ((x: number) => x < 5) (ls)).toEqual (l (3, 4));
+})
+
+test ('dropWhile - one dimensional list', () => {
+    const ls = l (3, 4, 6, 8)
+    expect (dropWhile ((x: number) => x < 5) (ls)).toEqual (l (6, 8));
 })
