@@ -99,7 +99,7 @@ List<A> => {
     return newList
 }
 
-const drop =
+export const drop =
 <A>
 (num: number) =>
 (list: List<A>):
