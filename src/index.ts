@@ -78,6 +78,15 @@ export const foldl =
     : foldl (fn) (fn (acc) (head (list))) (tail (list))
 }
 
+export const foldr =  <A, B>
+(fn: (acc: A) => (val: B) => B) => 
+(acc: B) =>
+(list: List<A>): B => {
+    return isNull (list)
+        ? acc
+        : fn (head (list)) (foldr (fn) (acc) (tail (list) ))
+}
+
 export const take =
 <A>
 (num: number) =>

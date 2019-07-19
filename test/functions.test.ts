@@ -20,7 +20,8 @@ import {
     minimum,
     maximum,
     drop,
-    take
+    take,
+    foldr
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -252,4 +253,9 @@ test ('take - one dimensional lists', () => {
 test ('take - two dimensional lists', () => {
     const ls = l ( l (1), l (2), l (3))
     expect (take (2) (ls)).toEqual (l ( l (1), l (2)))
+})
+
+test ('foldr', () => {
+    const ls = l (1, 2, 3)
+    expect (foldr ((x: number) => (acc: number) => x - acc) (0) (ls)).toEqual (2);
 })
