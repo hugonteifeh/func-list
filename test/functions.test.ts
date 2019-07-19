@@ -14,7 +14,8 @@ import {
     foldl,
     min,
     max,
-    and
+    and,
+    all
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -196,4 +197,14 @@ test ('and - one dimensional lists', () => {
 test ('and - one dimensional lists', () => {
     const ls = l (true, true, true)
     expect (and (ls)).toEqual (true)
+})
+
+test ('all - one dimensional lists', () => {
+    const ls = l (1, 2, 3)
+    expect (all ((x: number) => x > 2 ) (ls)).toEqual (false)
+})
+
+test ('all - one dimensional lists', () => {
+    const ls = l (1, 2, 3)
+    expect (all ((x: number) => x < 4 ) (ls)).toEqual (true)
 })
