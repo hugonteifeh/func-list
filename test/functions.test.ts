@@ -28,7 +28,8 @@ import {
     equals,
     last,
     cons,
-    flip
+    flip,
+    reverse
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -311,4 +312,9 @@ test ('cons - on one dimensional list', () => {
 test ('flip - on one dimensional list', () => {
     const ls = l (1, 2, 3, 4)
     expect ((flip ((x: number) => (y: number) => x - y ) (0) (3) )).toEqual (3)
+})
+
+test ('reverse - on one dimensional list', () => {
+    const ls = l (1, 2, 3, 4)
+    expect (reverse (ls)).toEqual (l (4, 3, 2, 1))
 })

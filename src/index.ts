@@ -19,6 +19,8 @@ function isList <A> (val: any): val is List<A> {
 
 export const l = <A>(...arr: A[]): List<A> => fromArray (arr)
 
+export const cons = <A>(x: A) => (ls: List<A>) => concat (l (x)) (ls)
+
 const fromArray = <A>(array: A[]): List<A> => {
     return new List (function* (): IterableIterator<A>  {
         yield* array
@@ -166,7 +168,9 @@ export const dropWhile = <A>(fn: (x: A) => boolean) => (ls: List<A>): List<A> =>
 
 export const flip = <A, B, C>(fn: (x: A) => (y: B) => C) => (x: B) => (y: A) => fn (y) (x)
 
-export const sum : (x: List<number>) => number =  
+export const reverse: <A>(x: List<A>) => List<A> = foldl (flip (cons)) (l ())
+
+export const sum: (x: List<number>) => number =  
 foldl ((x: number) => (y: number) => x + y) (0)
 
 export const product: (a: List<number>) => number =
@@ -263,5 +267,3 @@ export const last = <A>(list: List<A>): A => {
     if (isNull (list)) throw new Error ("Empty list")
     return get (list.length - 1) (list)
 }
-
-export const cons = <A>(x: A) => (ls: List<A>) => concat (l (x)) (ls)
