@@ -27,7 +27,8 @@ import {
     dropWhile,
     equals,
     last,
-    cons
+    cons,
+    flip
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -302,7 +303,12 @@ test ('last - on a non-empty list', () => {
     expect ((last (ls1)) ).toEqual (4)
 })
 
-test ('const - on one dimensional list', () => {
+test ('cons - on one dimensional list', () => {
     const ls = l (1, 2, 3, 4)
     expect ((cons (0) (ls)) ).toEqual ( l (0, 1, 2, 3, 4))
+})
+
+test ('flip - on one dimensional list', () => {
+    const ls = l (1, 2, 3, 4)
+    expect ((flip ((x: number) => (y: number) => x - y ) (0) (3) )).toEqual (3)
 })
