@@ -29,7 +29,8 @@ import {
     last,
     cons,
     flip,
-    reverse
+    reverse,
+    zipWith
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -317,4 +318,12 @@ test ('flip - on one dimensional list', () => {
 test ('reverse - on one dimensional list', () => {
     const ls = l (1, 2, 3, 4)
     expect (reverse (ls)).toEqual (l (4, 3, 2, 1))
+})
+
+test ('zipWith - on one dimensional list', () => {
+    const ls1 = l ('Anders', 'Lars', 'Per')
+    const ls2 = l ('Andersson', 'Larsson', 'Persson')
+    const res = l ('Anders Andersson', 'Lars Larsson', 'Per Persson')
+    const addStrings = (x: string) => (y: string):string => x + ' ' + y 
+    expect (zipWith (addStrings) (ls1) ((ls2) )).toEqual (res)
 })

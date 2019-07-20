@@ -170,6 +170,17 @@ export const flip = <A, B, C>(fn: (x: A) => (y: B) => C) => (x: B) => (y: A) => 
 
 export const reverse: <A>(x: List<A>) => List<A> = foldl (flip (cons)) (l ())
 
+export const zipWith =
+<A, B, C>
+(fn: (x: A) => (y: B) => C) =>
+(list1: List<A>) =>
+(list2: List<B>): List<C> => {
+    return any (isNull) (l (list1, list2))
+        ? l ()
+        : cons (fn (head (list1)) (head (list2)))
+                  (zipWith (fn) (tail (list1)) (tail (list2)))
+}
+
 export const sum: (x: List<number>) => number =  
 foldl ((x: number) => (y: number) => x + y) (0)
 
