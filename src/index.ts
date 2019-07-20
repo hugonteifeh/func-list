@@ -278,3 +278,10 @@ export const last = <A>(list: List<A>): A => {
     if (isNull (list)) throw new Error ("Empty list")
     return get (list.length - 1) (list)
 }
+
+export const flatten = <A>(list: List<List<A>>): List<A> => {
+    if (list.length === 0) return list
+    return list.length === 1
+        ? head (list)
+        : concat (head (list)) (flatten (tail (list)))
+}

@@ -30,7 +30,8 @@ import {
     cons,
     flip,
     reverse,
-    zipWith
+    zipWith,
+    flatten
 } from '../src/index'
 
 test ('head - one dimensional list', () => {
@@ -326,4 +327,14 @@ test ('zipWith - on one dimensional list', () => {
     const res = l ('Anders Andersson', 'Lars Larsson', 'Per Persson')
     const addStrings = (x: string) => (y: string):string => x + ' ' + y 
     expect (zipWith (addStrings) (ls1) ((ls2) )).toEqual (res)
+})
+
+test ('flatten - three dimensional list', () => {
+    const ls = l (
+        l (l (1)),
+        l (l (2)),
+        l (l (3))
+        );
+    const expected = l (l (1), l (2), l (3))
+    expect (flatten (ls)).toEqual (expected)
 })
