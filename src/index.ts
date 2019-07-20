@@ -285,3 +285,5 @@ export const flatten = <A>(list: List<List<A>>): List<A> => {
         ? head (list)
         : concat (head (list)) (flatten (tail (list)))
 }
+
+
