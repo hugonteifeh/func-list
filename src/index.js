@@ -100,11 +100,12 @@ export const foldr = fn => acc => list => {
 }
 
 export const get = index => list => {
-    if (index >= list.length) throw new Error ("Index too large")
-    const iterator = list[Symbol.iterator] ()
+    const ls = w (list)
+    if (index >= ls.length) throw new Error ("Index too large")
+    const iterator = ls[Symbol.iterator] ()
     let targetEl, currentIndex = 0
     let currentEl = iterator.next ()
-    while (!targetEl && currentIndex !== list.length) {
+    while (!targetEl && currentIndex !== ls.length) {
         if (currentIndex === index) targetEl = currentEl.value
         currentEl = iterator.next ()
         currentIndex = currentIndex + 1
@@ -113,19 +114,20 @@ export const get = index => list => {
 }
 
 export const take = num => list => {
-        if (num > list.length) return list
-        const gen = list[Symbol.iterator]
-        const newList = new List (function* () {  
-            let index = 0
-            const iterator = gen ();
-            let el = iterator.next ()
-            while (!el.done && index < num) {
-                yield el.value
-                index++
-                el = iterator.next ()
-            }
-        }, num);
-        return newList
+    const ls = w (list)
+    if (num > ls.length) return ls
+    const gen = ls[Symbol.iterator]
+    const newList = new List (function* () {  
+        let index = 0
+        const iterator = gen ();
+        let el = iterator.next ()
+        while (!el.done && index < num) {
+            yield el.value
+            index++
+            el = iterator.next ()
+        }
+    }, num);
+    return newList
 }
 
 export const drop = num => list => {
