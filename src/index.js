@@ -42,7 +42,7 @@ const isNull = list => length (list) === 0
 export const toArray = list => [...list]
 
 export const map = fn => list => {
-    const ls = w(list)
+    const ls = w (list)
     const gen = ls[Symbol.iterator]
     return new List (function* () {
         for (const val of gen ()) {
@@ -52,7 +52,7 @@ export const map = fn => list => {
 }
 
 export const filter = predicate => list => {
-    const ls = w(list)
+    const ls = w (list)
     const iterator = ls[Symbol.iterator] ()
     const newArray = []
     let currentEl = iterator.next ()
@@ -65,19 +65,21 @@ export const filter = predicate => list => {
 }
 
 export const head = list => {
-    const head = list[Symbol.iterator]().next ()
+    const ls = w (list)
+    const head = ls[Symbol.iterator]().next ()
     if (head.done) throw new Error ("Calling head on an a headless list, not a wise move :p")
     return isArray (head.value) ? fromArray (head.value) : head.value
 }
 
 export const tail = list => {
-    if (isNull (list)) throw new Error ("Calling tail on an empty list")
-    const gen = list[Symbol.iterator]
+    const ls = w (list)
+    if (isNull (ls)) throw new Error ("Calling tail on an empty list")
+    const gen = ls[Symbol.iterator]
     return new List (function* () {
         const iterator = gen ();
         iterator.next ();
         yield* iterator;
-    }, list.length - 1);
+    }, ls.length - 1);
 }
 
 export const foldl = fn => acc => list => {
