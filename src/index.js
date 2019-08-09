@@ -292,17 +292,19 @@ export const maximum = list => {
       :  foldl (max) (head (ls)) (tail (ls)) 
 }
 
-export const splitAt = num => ls => {
-    return ls.length === 0
-        ? [ls, ls]
-        : [take (num) (ls), drop (num) (ls)]
+export const splitAt = num => list => {
+  const ls = w (list)
+  return ls.length === 0
+      ? [ls, ls]
+      : [take (num) (ls), drop (num) (ls)]
 }
 
 const flatten = (list) => {
-    if (list.length === 0) return list
-    return list.length === 1
-        ? head (list)
-        : concat (head (list)) (flatten (tail (list)))
+  const ls = w (list)
+    if (ls.length === 0) return ls
+    return ls.length === 1
+        ? head (ls)
+        : concat (head (ls)) (flatten (tail (ls)))
 }
 
 export const chain = ls => fn => flatten (map (fn) (ls))
