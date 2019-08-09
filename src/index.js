@@ -92,7 +92,7 @@ export const foldl = fn => acc => list => {
 }
 
 export const foldr = fn => acc => list => {
-    const ls = w (ls)
+    const ls = w (list)
     return isNull (ls)
         ? acc
         : fn (head (ls))
