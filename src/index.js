@@ -244,31 +244,33 @@ export const all = fn => list => {
 export const any = fn => list => {
   const ls = w (list)
   const gen = ls[Symbol.iterator]
-      const iterator = gen ();
-      let el = iterator.next ()
-      let result = false
-      while (!el.done) {
-          if (fn (el.value) === true) {
-              result = true
-              break
-          }
-          el = iterator.next ()
+  const iterator = gen ();
+  let el = iterator.next ()
+  let result = false
+  while (!el.done) {
+      if (fn (el.value) === true) {
+          result = true
+          break
       }
+      el = iterator.next ()
+  }
   return result
 }
 
 export const equals = dt1 => dt2 => {
-    if (type (dt1) !== type (dt2))
-        throw new Error("At least one of the provided arguments is not a list")
-    if (type (dt1) === 'housecrow/func-list') {
-        if (dt1.length !== dt2.length) return false
-        if (dt1.length === 0) return true
-        else 
-            return equals (head (dt1)) (head (dt2)) 
-                && (isNull (dt1) ? true : equals (tail (dt1)) (tail (dt2)))
-    }
-    if (isObject (dt1) && dt1['fantasy-land/equals']) return dt1['fantasy-land/equals'](dt2)
-    return isDeepStrictEqual (dt1, dt2)
+  const _dt1 = w (dt1);
+  const _dt2 = w (dt2)
+  if (type (_dt1) !== type (_dt2))
+      throw new Error("At least one of the provided arguments is not a list")
+  if (type (_dt1) === 'housecrow/func-list') {
+      if (_dt1.length !== _dt2.length) return false
+      if (_dt1.length === 0) return true
+      else 
+          return equals (head (_dt1)) (head (_dt2)) 
+              && (isNull (_dt1) ? true : equals (tail (_dt1)) (tail (_dt2)))
+  }
+  if (isObject (_dt1) && _dt1['fantasy-land/equals']) return _dt1['fantasy-land/equals'](_dt2)
+  return isDeepStrictEqual (_dt1, _dt2)
 }
 
 export const min = x => y => x > y ? y : x
