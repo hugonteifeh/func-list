@@ -189,38 +189,40 @@ export const cons = el => list => {
 }
 
 export const flip = fn => x => y => fn (y) (x)
-export const reverse = foldl (flip (cons)) (list ())
+export const reverse = foldl (flip (cons)) (l ())
 export const sum = foldl (x => y => x + y) (0)
 export const product = foldl (x => y => x * y) (1)
 
 export const and = list => {
-    const gen = list[Symbol.iterator]
-        const iterator = gen ();
-        let el = iterator.next ()
-        let result = true
-        while (!el.done) {
-            if (el.value === false) {
-                result = false
-                break
-            }
-            el = iterator.next ()
-        }
-    return result
+  const ls = w (list)
+  const gen = ls[Symbol.iterator]
+  const iterator = gen ();
+  let el = iterator.next ()
+  let result = true
+  while (!el.done) {
+    if (el.value === false) {
+      result = false
+      break
+    }
+    el = iterator.next ()
+  }
+  return result
 }
 
 export const or = list => {
-    const gen = list[Symbol.iterator]
-        const iterator = gen ();
-        let el = iterator.next ()
-        let result = false
-        while (!el.done) {
-            if (el.value === true) {
-                result = true
-                break
-            }
-            el = iterator.next ()
-        }
-    return result
+  const ls = w (list)
+  const gen = ls[Symbol.iterator]
+  const iterator = gen ();
+  let el = iterator.next ()
+  let result = false
+  while (!el.done) {
+    if (el.value === true) {
+      result = true
+      break
+    }
+    el = iterator.next ()
+  }
+  return result
 }
 
 export const all = fn => list => {
