@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/housecrow/func-list/tree/master.svg?style=svg)](https://circleci.com/gh/housecrow/func-list/tree/master)
+
 # Description
 
 The package provides lists with lazy, semi-lazy and strict functions. It leverages ES2015's iterators and generators to implement the laziness aspect.
