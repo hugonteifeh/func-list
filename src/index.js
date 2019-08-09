@@ -226,33 +226,35 @@ export const or = list => {
 }
 
 export const all = fn => list => {
-    const gen = list[Symbol.iterator]
-    const iterator = gen ();
-    let el = iterator.next ()
-    let result = true
-    while (!el.done) {
-        if (fn (el.value) === false) {
-            result = false
-            break
-        }
-        el = iterator.next ()
-    }
-    return result
+  const ls = w (list)
+  const gen = ls[Symbol.iterator]
+  const iterator = gen ();
+  let el = iterator.next ()
+  let result = true
+  while (!el.done) {
+      if (fn (el.value) === false) {
+          result = false
+          break
+      }
+      el = iterator.next ()
+  }
+  return result
 }
 
 export const any = fn => list => {
-    const gen = list[Symbol.iterator]
-        const iterator = gen ();
-        let el = iterator.next ()
-        let result = false
-        while (!el.done) {
-            if (fn (el.value) === true) {
-                result = true
-                break
-            }
-            el = iterator.next ()
-        }
-    return result
+  const ls = w (list)
+  const gen = ls[Symbol.iterator]
+      const iterator = gen ();
+      let el = iterator.next ()
+      let result = false
+      while (!el.done) {
+          if (fn (el.value) === true) {
+              result = true
+              break
+          }
+          el = iterator.next ()
+      }
+  return result
 }
 
 export const equals = dt1 => dt2 => {
