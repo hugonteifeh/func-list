@@ -42,12 +42,13 @@ const isNull = list => length (list) === 0
 export const toArray = list => [...list]
 
 export const map = fn => list => {
-    const gen = list[Symbol.iterator]
+    const ls = w(list)
+    const gen = ls[Symbol.iterator]
     return new List (function* () {
         for (const val of gen ()) {
             yield fn (w(val))
         }
-    }, list.length)
+    }, ls.length)
 }
 
 export const filter = predicate => list => {
