@@ -158,20 +158,22 @@ export const concat = list1 => list2 => {
   }, totalLength)
 }
 
-export const takeWhile = fn => ls => {
-    if (ls.length === 0) return ls 
-    const headEl = head (ls)
-    return fn (headEl)
-        ? concat (list (headEl)) (takeWhile (fn) (tail (ls) )) 
-        : list ()
+export const takeWhile = fn => list => {
+  const ls = w (list)
+  if (ls.length === 0) return ls 
+  const headEl = head (ls)
+  return fn (headEl)
+    ? concat (l (headEl)) (takeWhile (fn) (tail (ls) )) 
+    : l ()
 }
 
-export const dropWhile = fn => ls => {
-    return ls.length === 0
-        ? list ()
-        : fn (head (ls)) 
-            ? dropWhile (fn) (tail (ls))
-            : ls
+export const dropWhile = fn => list => {
+  const ls = w (list)
+  return ls.length === 0
+    ? l ()
+    : fn (head (ls)) 
+      ? dropWhile (fn) (tail (ls))
+      : ls
 }
 
 export const last = list => {
