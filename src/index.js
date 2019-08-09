@@ -307,13 +307,15 @@ const flatten = (list) => {
         : concat (head (ls)) (flatten (tail (ls)))
 }
 
-export const chain = ls => fn => flatten (map (fn) (ls))
+export const chain = list => fn => flatten (map (fn) (w (list)))
 
 export const zipWith = fn => list1 => list2 => {
-    return any (isNull) (list (list1, list2))
-        ? list ()
-        : cons (fn (head (list1)) (head (list2)))
-                  (zipWith (fn) (tail (list1)) (tail (list2)))
+  const ls1 = w (list1)
+  const ls2 = w (list2)
+  return any (isNull) (list (ls1, ls2))
+      ? list ()
+      : cons (fn (head (ls1)) (head (ls2)))
+                (zipWith (fn) (tail (ls1)) (tail (ls2)))
 }
 
 const mapMathod = function (fn) {
