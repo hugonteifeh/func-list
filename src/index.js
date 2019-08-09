@@ -177,13 +177,15 @@ export const dropWhile = fn => list => {
 }
 
 export const last = list => {
-    if (isNull (list)) throw new Error ("Empty list")
-    return get (list.length - 1) (list)
+  const ls = w (list)
+  if (isNull (ls)) throw new Error ("Empty list")
+  return get (ls.length - 1) (ls)
 }
 
-export const cons = el => ls => {
-    const elList = fromArray ([el])
-    return concat (elList) (ls)
+export const cons = el => list => {
+  const ls = w (list)
+  const elList = fromArray ([el])
+  return concat (elList) (ls)
 }
 
 export const flip = fn => x => y => fn (y) (x)
