@@ -83,18 +83,20 @@ export const tail = list => {
 }
 
 export const foldl = fn => acc => list => {
-    return isNull (list)
+    const ls = w (list)
+    return isNull (ls)
         ? acc
         : foldl (fn)
-                (fn (acc) (head (list)) )
-                (tail (list))
+                (fn (acc) (head (ls)) )
+                (tail (ls))
 }
 
 export const foldr = fn => acc => list => {
-    return isNull (list)
+    const ls = w (ls)
+    return isNull (ls)
         ? acc
-        : fn (head (list))
-             (foldr (fn) (acc) (tail (list) ))
+        : fn (head (ls))
+             (foldr (fn) (acc) (tail (ls) ))
 }
 
 export const get = index => list => {
