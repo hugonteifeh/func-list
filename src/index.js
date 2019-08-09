@@ -131,28 +131,31 @@ export const take = num => list => {
 }
 
 export const drop = num => list => {
-        if (num > list.length) return list
-        const gen = list[Symbol.iterator]
-        const newList = new List(function* () {  
-            let index = 0
-            const iterator = gen ();
-            let el = iterator.next ()
-            while (!el.done) {
-                if (index > num - 1) yield el.value
-                el = iterator.next ()
-                index = index + 1
-            }
-        }, list.length - num);
-        return newList
+  const ls = w (list)
+  if (num > ls.length) return ls
+  const gen = ls[Symbol.iterator]
+  const newList = new List(function* () {  
+    let index = 0
+    const iterator = gen ();
+    let el = iterator.next ()
+    while (!el.done) {
+      if (index > num - 1) yield el.value
+      el = iterator.next ()
+      index = index + 1
+    }
+  }, ls.length - num);
+  return newList
 }
 
 export const concat = list1 => list2 => {
-    const gen = list1[Symbol.iterator]
-    const totalLength = list1.length + list2.length
-    return new List (function* () {
-        yield* gen ()
-        yield* list2
-    }, totalLength)
+  const ls1 = w (list);
+  const ls2 = w (list2)
+  const gen = ls1[Symbol.iterator]
+  const totalLength = ls1.length + ls2.length
+  return new List (function* () {
+    yield* gen ()
+    yield* ls2
+  }, totalLength)
 }
 
 export const takeWhile = fn => ls => {
