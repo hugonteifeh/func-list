@@ -52,11 +52,12 @@ export const map = fn => list => {
 }
 
 export const filter = predicate => list => {
-    const iterator = list[Symbol.iterator] ()
+    const ls = w(list)
+    const iterator = ls[Symbol.iterator] ()
     const newArray = []
     let currentEl = iterator.next ()
     while (!currentEl.done) {
-        if (predicate (w(currentEl.value))) 
+        if (predicate (w (currentEl.value))) 
             newArray.push (currentEl.value)
             currentEl = iterator.next ()
     }
