@@ -276,18 +276,20 @@ export const equals = dt1 => dt2 => {
 export const min = x => y => x > y ? y : x
 export const max = x => y => min (x) (y) === x ? y : x
 
-export const minimum = ls => {
-    if (length (ls) === 0) throw new Error("Cannot call minimum on an empty list")
-    return length (ls) === 1
-        ?  head (ls)
-        :  foldl (min) (head (ls)) (tail (ls)) 
+export const minimum = list => {
+  const ls = w (list)
+  if (length (ls) === 0) throw new Error("Cannot call minimum on an empty list")
+  return length (ls) === 1
+      ?  head (ls)
+      :  foldl (min) (head (ls)) (tail (ls)) 
 }
 
-export const maximum = ls => {
-    if (length (ls) === 0) throw new Error("Cannot call maximum on an empty list")
-    return length (ls) === 1
-        ?  head (ls)
-        :  foldl (max) (head (ls)) (tail (ls)) 
+export const maximum = list => {
+  const ls = w (list)
+  if (length (ls) === 0) throw new Error("Cannot call maximum on an empty list")
+  return length (ls) === 1
+      ?  head (ls)
+      :  foldl (max) (head (ls)) (tail (ls)) 
 }
 
 export const splitAt = num => ls => {
