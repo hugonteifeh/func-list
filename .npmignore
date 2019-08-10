@@ -3,3 +3,4 @@ rollup.config.js
 .babelrc
 coverage
 .github/
+.circleci/
