@@ -101,10 +101,11 @@ test('get - large index', () => {
     expect(() => get (2) (ls1)).toThrow("Index too large")
 })
 
-test('get - large index', () => {
+test('get - index within range', () => {
     const ls1 = l([2, 3])
-    expect(() => get (2) (ls1)).toThrow("Index too large")
+    expect(get (1) (ls1)).toEqual(3)
 })
+
 test('take - When the length of the list is bigger than num', () => {
     const ls1 = l([1, 2, 3, 4, 6])
     expect(toArray (take (3) (ls1))).toEqual([1, 2, 3]);
