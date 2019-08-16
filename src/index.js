@@ -150,10 +150,9 @@ export const drop = num => list => {
 export const concat = list1 => list2 => {
   const ls1 = w (list1);
   const ls2 = w (list2)
-  const gen = ls1[Symbol.iterator]
   const totalLength = ls1.length + ls2.length
   return new List (function* () {
-    yield* gen ()
+    yield* ls1
     yield* ls2
   }, totalLength)
 }
