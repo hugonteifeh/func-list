@@ -2,7 +2,7 @@
 
 # Description
 
-The package provides lists with lazy, semi-lazy and strict functions. It leverages ES2015's iterators and generators to implement the laziness aspect.
+This package provides lists with lazy, semi-lazy and strict functions. It leverages ES2015's iterators and generators to implement the laziness aspect.
 
 ## Motivation
 
@@ -36,9 +36,9 @@ For every function a haskellish signature as well as a javascript signature(with
 ## Constructor
 
 ```javascript
-import { l } from '@housecrow/func-list'
-const myList =  l(1, 2, 3)
-const myList2 =  l([1, 2, 3])
+import { l } from "@housecrow/func-list";
+const myList = l(1, 2, 3);
+const myList2 = l([1, 2, 3]);
 ```
 
 As you can see in the above code block the constructor can take the list elements either as seperate arguments or as an array containing the elements.
@@ -54,7 +54,7 @@ Some points that are worth mentioning:
 
 ### map
 
-Laziness: *lazy*
+Laziness: _lazy_
 
 `map :: (a -> b) -> [a] -> [b]`
 
@@ -65,7 +65,7 @@ Laziness: *lazy*
 #### Parameters
 
 `x => y` A function that takes a value 'x' and returns a value 'y'.\
-`list` of type *List* A list to operate on.
+`list` of type _List_ A list to operate on.
 
 #### Description
 
@@ -74,7 +74,7 @@ to all items in the list passed as the second argument.
 
 ### filter
 
-Laziness: *none*
+Laziness: _none_
 
 `filter :: (a -> Bool) [a] -> [a]`
 
@@ -84,8 +84,8 @@ Laziness: *none*
 
 #### Parameters
 
-`x => bool` A function that takes a value 'x' and returns a value of type *Boolean*.\
-`list` of type *List*.
+`x => bool` A function that takes a value 'x' and returns a value of type _Boolean_.\
+`list` of type _List_.
 
 #### Description
 
@@ -93,7 +93,7 @@ Takes a predicate(boolean function) and a list and returns a new list whose elem
 
 ### foldl
 
-Laziness: *semi-lazy*
+Laziness: _semi-lazy_
 
 `foldl :: (b -> a -> b) -> b -> [a] -> b`
 
@@ -113,7 +113,7 @@ Takes the first item of the list and and the second argument and applies the fun
 
 ### head
 
-Laziness: *none*
+Laziness: _none_
 
 `head :: [a] -> a`
 
@@ -123,7 +123,7 @@ Laziness: *none*
 
 #### Parameters
 
-`list` of type *List*.
+`list` of type _List_.
 
 #### Description
 
@@ -131,7 +131,7 @@ Returns the first element in the list. Throws an error when called on an empty l
 
 ### tail
 
-Laziness: *lazy*
+Laziness: _lazy_
 
 `tail :: [a] -> [a]`
 
@@ -141,7 +141,7 @@ Laziness: *lazy*
 
 #### Parameters
 
-`List` of type *List*.
+`List` of type _List_.
 
 #### Description
 
@@ -151,7 +151,7 @@ When called on a singelton-list it returns an empty list.
 
 ### get
 
-Laziness: *none*
+Laziness: _none_
 
 `get :: (Num a) -> a -> [b] -> b`
 
@@ -160,8 +160,9 @@ Laziness: *none*
 `get (index) (list)`
 
 #### Parameters
-`index` of type *Number*.\
-`list` of type *List*.
+
+`index` of type _Number_.\
+`list` of type _List_.
 
 #### Description
 
@@ -169,7 +170,7 @@ Takes an index and a list and returns the element at the specified index.
 
 ### take
 
-Laziness: *lazy*
+Laziness: _lazy_
 
 `take :: Int -> [a] -> [a]`
 
@@ -178,8 +179,9 @@ Laziness: *lazy*
 `take (num) (list)`
 
 #### Parameters
-`num` of type *Number*.\
-`list` of type *List*.
+
+`num` of type _Number_.\
+`list` of type _List_.
 
 #### Description
 
@@ -187,7 +189,7 @@ Returns a new list, the first argument speicifies how many items will be taken f
 
 ### drop
 
-Laziness: *lazy*
+Laziness: _lazy_
 
 `drop :: Int -> [a] -> [a]`
 
@@ -196,8 +198,9 @@ Laziness: *lazy*
 `drop (num) (list)`
 
 #### Parameters
-`num` of type *Number*.\
-`list` of type *List*.
+
+`num` of type _Number_.\
+`list` of type _List_.
 
 #### Description
 
@@ -205,7 +208,7 @@ Returns a subllist constructed from the list provided as the second argument, th
 
 ### concat
 
-Laziness: *lazy*
+Laziness: _lazy_
 
 `concat :: [a] -> [a] -> [a]`
 
@@ -214,8 +217,9 @@ Laziness: *lazy*
 `concat (list1) (list2)`
 
 #### Parameters
-`list1` of type *List*.\
-`list2` of type *List*.
+
+`list1` of type _List_.\
+`list2` of type _List_.
 
 #### Description
 
@@ -223,7 +227,7 @@ Returns a new list that is constrcuted from the concatenation of the two provide
 
 ### last
 
-Laziness: *none*
+Laziness: _none_
 
 `last :: [a] -> a`
 
@@ -232,7 +236,8 @@ Laziness: *none*
 `last (list1) (list2)`
 
 #### Parameters
-`list` of type *List*.\
+
+`list` of type _List_.\
 
 #### Description
 
@@ -240,7 +245,7 @@ Returns the last element in the list.Throws an error when called on an empty lis
 
 ### cons
 
-Laziness: *lazt*
+Laziness: _lazt_
 
 `cons :: a -> [a] -> [a]`
 
@@ -249,8 +254,9 @@ Laziness: *lazt*
 `cons (x) (list)`
 
 #### Parameters
+
 `x` a value 'x'.\
-`list` of type *List*.
+`list` of type _List_.
 
 #### Description
 
@@ -258,7 +264,7 @@ Returns a new list that is the result of preapending 'x' to the provided list.
 
 ### reverse
 
-Laziness: *lazy*
+Laziness: _lazy_
 
 `reverse :: [a] -> [a]`
 
@@ -267,7 +273,8 @@ Laziness: *lazy*
 `reverse (list)`
 
 #### Parameters
-`list` of type *List*.
+
+`list` of type _List_.
 
 #### Description
 
@@ -275,7 +282,7 @@ Returns a new list containg the elements in the provided list in the reverse ord
 
 ### sum
 
-Laziness: *semi-lazy*
+Laziness: _semi-lazy_
 
 `sum :: [a] -> a`
 
@@ -284,15 +291,16 @@ Laziness: *semi-lazy*
 `sum (list)`
 
 #### Parameters
-`list` of type *List*.
+
+`list` of type _List_.
 
 #### Description
 
-Returns the sum of  all the elements in the provided list. when called on an empty list the result is 0.
+Returns the sum of all the elements in the provided list. when called on an empty list the result is 0.
 
 ### product
 
-Laziness: *semi-lazy*
+Laziness: _semi-lazy_
 
 `product :: [a] -> a`
 
@@ -301,7 +309,8 @@ Laziness: *semi-lazy*
 `product (list)`
 
 #### Parameters
-`list` of type *List*.
+
+`list` of type _List_.
 
 #### Description
 
@@ -309,7 +318,7 @@ Returns the product of all the elements in the provided list. when called on an 
 
 ### all
 
-Laziness: *none*
+Laziness: _none_
 
 `all :: (a -> Bool) -> [a] -> Bool`
 
@@ -318,8 +327,9 @@ Laziness: *none*
 `all (x => Boolean) (list)`
 
 #### Parameters
+
 `x => Boolean` a predicate function.\
-`list` of type *List*.
+`list` of type _List_.
 
 #### Description
 
@@ -327,7 +337,7 @@ Returns true if all the elements in the provided list fulfill the predicate.
 
 ### any
 
-Laziness: *none*
+Laziness: _none_
 
 `all :: (a -> Bool) -> [a] -> Bool`
 
@@ -336,8 +346,9 @@ Laziness: *none*
 `any (x => Boolean) (list)`
 
 #### Parameters
+
 `x => Boolean` a predicate function.\
-`list` of type *List*.
+`list` of type _List_.
 
 #### Description
 
@@ -345,7 +356,7 @@ Returns true if any of the elements in the provided list fulfill the predicate.
 
 ### and
 
-Laziness: *none*
+Laziness: _none_
 
 `all :: (a -> Bool) -> [a] -> Bool`
 
@@ -354,8 +365,9 @@ Laziness: *none*
 `and (x => Boolean) (list)`
 
 #### Parameters
+
 `x => Boolean` a predicate function.\
-`list` of type *List Boolean*.
+`list` of type _List Boolean_.
 
 #### Description
 
@@ -363,7 +375,7 @@ Returns true if all the boolean values in the provided list are true.
 
 ### or
 
-Laziness: *none*
+Laziness: _none_
 
 `all :: (a -> Bool) -> [a] -> Bool`
 
@@ -372,8 +384,9 @@ Laziness: *none*
 `and (x => Boolean) (list)`
 
 #### Parameters
+
 `x => Boolean` a predicate function.\
-`list` of type *List Boolean*.
+`list` of type _List Boolean_.
 
 #### Description
 
